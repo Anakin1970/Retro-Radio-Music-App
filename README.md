@@ -8,7 +8,6 @@ Users can switch between different music stations, listen to curated tracks, and
 - Retro-style radio interface
 - Preset music station buttons
 - Smooth MP3 audio playback
-- Album artwork and visual enhancements
 - Simple and user-friendly design
 - Responsive web-based experience
 
