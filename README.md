@@ -12,4 +12,4 @@ Users can switch between different music stations, listen to curated tracks, and
 - Responsive web-based experience
 
 ## Purpose
-This project was created to demonstrate front-end web development skills while building a functional and creative music application. It highlights interactive design, media integration, and a themed user experience inspired by classic radio. All music used for commercial and education purposes only.
+This project was created to demonstrate front-end web development skills while building a functional and creative music application. It highlights interactive design, media integration, and a themed user experience inspired by classic radio. All music used for entertainment and education purposes only.
