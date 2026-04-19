@@ -29,6 +29,7 @@
             <div class="bg-shape shape-7"></div>
             <div class="bg-shape shape-8"></div>
         </div><!--animated-bg-->
+
         <!-- ===================================================== -->
         <!-- App Shell -->
         <!-- ===================================================== -->
@@ -51,6 +52,7 @@
                             <i class="ri-menu-3-line"></i>
                         </button>
                     </header><!--/.top-bar-->
+
                     <!-- Station Header -->
                     <section class="station-header">
                         <span class="live-badge">ON AIR</span>
@@ -59,6 +61,7 @@
                         <p class="show-title">Now Broadcasting: The Golden Era Mix</p>
                         <p class="station-slogan">Golden era all day</p>
                     </section><!--/.station-header-->
+
                     <!-- Hero Dial -->
                     <section class="hero-dial-wrap" aria-label="Station dial display">
                         <div class="hero-dial">
@@ -69,6 +72,7 @@
                             <div class="signal-glow"></div>
                         </div><!--/.hero-dial-->
                     </section><!--/.hero-dial-wrap-->
+
                     <!-- Now Playing -->
                     <section class="now-playing" aria-live="polite">
                         <p class="eyebrow">NOW PLAYING</p>
@@ -76,6 +80,36 @@
                         <p class="track-artist">LL Cool J</p>
                         <span class="genre-chip">Hip-Hop Classics</span>
                     </section><!--/.now-playing-->
+
+                    <!-- Did You Know Card -->
+                    <section class="did-you-know-card" aria-live="polite">
+                        <div class="did-you-know-header">
+                            <div class="did-you-know-badge-wrap">
+                                <span class="did-you-know-badge">Did You Know?</span>
+                                <span class="on-air-fact-indicator" aria-hidden="true">
+                                    <span class="on-air-fact-dot"></span>
+                                    <span class="on-air-fact-text">ON AIR FACT</span>
+                                </span>
+                            </div>
+
+                            <span class="did-you-know-type">
+                                <span class="did-you-know-type-icon-wrap" aria-hidden="true">
+                                    <i class="ri-mic-line"></i>
+                                    <span class="fact-soundwave">
+                                        <span class="fact-soundwave-bar"></span>
+                                        <span class="fact-soundwave-bar"></span>
+                                        <span class="fact-soundwave-bar"></span>
+                                    </span>
+                                </span>
+                                <span class="did-you-know-type-label">Artist Fact</span>
+                            </span>
+                        </div>
+
+                        <p class="did-you-know-text">
+                            Hip-hop’s golden era helped shape sampling, DJ culture, and lyrical storytelling.
+                        </p>
+                    </section><!--/.did-you-know-card-->
+
                     <!-- Progress / Time Bar -->
                     <section class="wave-strip" aria-label="Track progress">
                         <span class="time-label current-time">0:00</span>
@@ -90,6 +124,7 @@
                         </button>
                         <span class="time-label total-time">0:00</span>
                     </section><!--/.wave-strip-->
+
                     <!-- Audio Visualizer -->
                     <section
                         id="audio-visualizer-container"
@@ -97,6 +132,7 @@
                     >
                         <canvas id="audio-visualizer"></canvas>
                     </section><!--/.audio-visualizer-->
+
                     <!-- Transport Controls -->
                     <section
                         class="transport-controls"
@@ -155,11 +191,11 @@
                         aria-label="Player utility controls"
                     >
                         <button
-                        class="utility-btn"
-                        type="button"
-                        data-action="mute"
-                        aria-label="Mute"
-                        title="Mute / Unmute"
+                            class="utility-btn"
+                            type="button"
+                            data-action="mute"
+                            aria-label="Mute"
+                            title="Mute / Unmute"
                         >
                             <i class="ri-volume-up-line"></i>
                         </button>
@@ -176,9 +212,11 @@
                             />
                         </div><!--/.volume-wrap-->
                     </section>
+
                     <!-- Footer Link -->
                     <footer class="hero-footer-link">ALL STATIONS</footer>
                 </section>
+
                 <!-- ===================================================== -->
                 <!-- Right Panel: Sidebar / Info Stack -->
                 <!-- ===================================================== -->
@@ -191,6 +229,7 @@
                         </div><!--/.card-heading-row-->
                         <div class="preset-list"></div>
                     </section>
+
                     <!-- Queue / Recently Played -->
                     <section class="stack-card queue-card">
                         <div class="card-heading-row">
@@ -204,6 +243,7 @@
                         </div><!--/.card-heading-row-->
                         <div class="track-list recent-list"></div>
                     </section>
+
                     <!-- Broadcast Info -->
                     <section class="stack-card broadcast-card">
                         <div class="card-heading-row">
@@ -215,6 +255,7 @@
                 </aside>
             </main>
         </div><!--app-shell-->
+
         <!-- Core JS -->
         <script type="module" src="assets/js/app.js"></script>
     </body>
