@@ -46,30 +46,27 @@ export function createAudioVisualizer({ audioElement, canvas }) {
   function getThemeColors() {
     const styles = window.getComputedStyle(document.body);
     const accentRgb = (styles.getPropertyValue("--accent-rgb") || "210, 154, 103").trim();
-    const accentSoft = (styles.getPropertyValue("--accent-soft") || "#d8ab84").trim();
 
     return {
       accentRgb,
-      accentSoft,
     };
   }
 
   function buildMainGradient() {
-    const { accentRgb, accentSoft } = getThemeColors();
-    const gradient = context.createLinearGradient(0, 0, canvas.width, 0);
-    gradient.addColorStop(0, `rgba(${accentRgb}, 0.45)`);
-    gradient.addColorStop(0.35, `rgba(${accentRgb}, 0.75)`);
-    gradient.addColorStop(0.7, `rgba(${accentRgb}, 0.95)`);
-    gradient.addColorStop(1, accentSoft);
+    const { accentRgb } = getThemeColors();
+    const gradient = context.createLinearGradient(0, 0, 0, canvas.height);
+    gradient.addColorStop(0, `rgba(${accentRgb}, 0.92)`);
+    gradient.addColorStop(0.55, `rgba(${accentRgb}, 0.82)`);
+    gradient.addColorStop(1, `rgba(${accentRgb}, 0.64)`);
     return gradient;
   }
 
   function buildGlowGradient() {
     const { accentRgb } = getThemeColors();
-    const gradient = context.createLinearGradient(0, 0, canvas.width, 0);
-    gradient.addColorStop(0, `rgba(${accentRgb}, 0.15)`);
-    gradient.addColorStop(0.5, `rgba(${accentRgb}, 0.32)`);
-    gradient.addColorStop(1, `rgba(${accentRgb}, 0.2)`);
+    const gradient = context.createLinearGradient(0, 0, 0, canvas.height);
+    gradient.addColorStop(0, `rgba(${accentRgb}, 0.26)`);
+    gradient.addColorStop(0.6, `rgba(${accentRgb}, 0.18)`);
+    gradient.addColorStop(1, `rgba(${accentRgb}, 0.12)`);
     return gradient;
   }
 
