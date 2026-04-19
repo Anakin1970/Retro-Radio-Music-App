@@ -7,88 +7,215 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Music Player (Prototype)</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--Core-CSS-->
-        <link rel="stylesheet" href="assets/css/style.css"/>
+        <title>MusicMixx Radio App | Dashboard</title>
+        <meta name="description" content="The premiere radio app on the Internet." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Remix Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"/>
+        <!-- Core CSS -->
+        <link rel="stylesheet" href="assets/css/style.css" />
     </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <div class="background">
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>  
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>  
-            <div class="shape"></div>
-            <div class="shape"></div> 
-        </div><!--background-->        
-        <div class="app">
-            <div id="music-player">
-                <header id="app-header">
-                    <p id="time"></p><!--time-->
-                    <ul id="ui-icons"></ul><!--ui-icons-->
-                </header>  
-                <main>
-                    <header id="player-header">
-                        <button aria-label="Info"></button>
-                        <h1 id="header-title"></h1><!--header-title-->
-                        <button aria-label="Playlist"></button>
-                    </header>
-                    <section id="player-body">
-                        <div id="current-song">
-                            <img id="album-cover-art" alt="Cover Art For Current Song"/>
-                            <button aria-label="Shuffle"></button>
-                            <button aria-label="Repeat"></button>
-                        </div><!--current-song-->
-                        <div id="song-info" aria-live="polite">
-                            <h2 id="song-name"></h2><!--song-name-->
-                            <p id="song-artist"></p><!--song-artist-->
-                        </div><!--song-info-->
-                        <div id="volume">
-                            <label for="volume-control">0</label>
-                            <input id="volume-control" type="range" min="0" max="100" value="50"/>
-                            <label for="volume-control">100</label>
-                        </div>
-                        <!--audio-visualizer-->
-                        <div id="audio-visualizer"></div><!--audio-visualizer-->
-                        <div id="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div><!--progress-bar-->
+    <body data-theme="hiphop">
+        <!-- ===================================================== -->
+        <!-- Animated Background -->
+        <!-- ===================================================== -->
+        <div class="animated-background" aria-hidden="true">
+            <div class="bg-shape shape-1"></div>
+            <div class="bg-shape shape-2"></div>
+            <div class="bg-shape shape-3"></div>
+            <div class="bg-shape shape-4"></div>
+            <div class="bg-shape shape-5"></div>
+            <div class="bg-shape shape-6"></div>
+            <div class="bg-shape shape-7"></div>
+            <div class="bg-shape shape-8"></div>
+        </div><!--animated-bg-->
+        <!-- ===================================================== -->
+        <!-- App Shell -->
+        <!-- ===================================================== -->
+        <div class="app-shell">
+            <main class="radio-layout">
+                <!-- ===================================================== -->
+                <!-- Left Panel: Main Player / Hero Console -->
+                <!-- ===================================================== -->
+                <section class="hero-console">
+                    <!-- Top Bar -->
+                    <header class="top-bar">
+                        <button class="icon-btn" type="button" aria-label="Search">
+                            <i class="ri-search-line"></i>
+                        </button>
+                        <div class="app-brand">
+                            <span class="brand-dot"></span>
+                            <span>Music Mixx FM</span>
+                        </div><!--/.app-brand-->
+                        <button class="icon-btn" type="button" aria-label="Menu">
+                            <i class="ri-menu-3-line"></i>
+                        </button>
+                    </header><!--/.top-bar-->
+                    <!-- Station Header -->
+                    <section class="station-header">
+                        <span class="live-badge">ON AIR</span>
+                        <h1 class="frequency-display">94.5 FM</h1>
+                        <h2 class="station-name">Hip-Hop Classics</h2>
+                        <p class="show-title">Now Broadcasting: The Golden Era Mix</p>
+                        <p class="station-slogan">Golden era all day</p>
+                    </section><!--/.station-header-->
+                    <!-- Hero Dial -->
+                    <section class="hero-dial-wrap" aria-label="Station dial display">
+                        <div class="hero-dial">
+                            <div class="dial-ring ring-1"></div>
+                            <div class="dial-ring ring-2"></div>
+                            <div class="dial-ring ring-3"></div>
+                            <div class="dial-core"></div>
+                            <div class="signal-glow"></div>
+                        </div><!--/.hero-dial-->
+                    </section><!--/.hero-dial-wrap-->
+                    <!-- Now Playing -->
+                    <section class="now-playing" aria-live="polite">
+                        <p class="eyebrow">NOW PLAYING</p>
+                        <h3 class="track-title">Rock The Bells</h3>
+                        <p class="track-artist">LL Cool J</p>
+                        <span class="genre-chip">Hip-Hop Classics</span>
+                    </section><!--/.now-playing-->
+                    <!-- Progress / Time Bar -->
+                    <section class="wave-strip" aria-label="Track progress">
+                        <span class="time-label current-time">0:00</span>
+                        <button
+                            class="progress-bar"
+                            type="button"
+                            aria-label="Seek through track"
+                            title="Seek"
+                        >
+                            <span class="progress-fill"></span>
+                            <span class="progress-thumb"></span>
+                        </button>
+                        <span class="time-label total-time">0:00</span>
+                    </section><!--/.wave-strip-->
+                    <!-- Audio Visualizer -->
+                    <section
+                        id="audio-visualizer-container"
+                        aria-label="Audio visualizer"
+                    >
+                        <canvas id="audio-visualizer"></canvas>
+                    </section><!--/.audio-visualizer-->
+                    <!-- Transport Controls -->
+                    <section
+                        class="transport-controls"
+                        aria-label="Playback transport controls"
+                    >
+                        <button
+                            class="control-btn small"
+                            type="button"
+                            data-action="shuffle"
+                            aria-label="Shuffle"
+                            title="Shuffle"
+                        >
+                            <i class="ri-shuffle-line"></i>
+                        </button>
+                        <button
+                            class="control-btn medium"
+                            type="button"
+                            data-action="previous"
+                            aria-label="Previous"
+                            title="Previous"
+                        >
+                            <i class="ri-skip-back-mini-fill"></i>
+                        </button>
+                        <button
+                            class="control-btn large active"
+                            type="button"
+                            data-action="play-toggle"
+                            aria-label="Play"
+                            title="Play / Pause"
+                        >
+                            <i class="ri-play-fill"></i>
+                        </button>
+                        <button
+                            class="control-btn medium"
+                            type="button"
+                            data-action="next"
+                            aria-label="Next"
+                            title="Next"
+                        >
+                            <i class="ri-skip-forward-mini-fill"></i>
+                        </button>
+                        <button
+                            class="control-btn small"
+                            type="button"
+                            data-action="favorite"
+                            aria-label="Favorite"
+                            title="Favorite"
+                        >
+                            <i class="ri-heart-line"></i>
+                        </button>
                     </section>
-                </main>
-                <footer>
-                    <nav id="player-controls" aria-label="Music Controls" role="navigation">
-                        <button aria-label="Previous"></button>
-                        <button aria-label="Play"></button>
-                        <button aria-label="Next"></button>
-                    </nav><!--player-controls-->
-                </footer>
-            </div><!--music-player-->
-            <!--playlist-->
-            <div id="playlist">
-                <div id="playlist-header">
-                    <button aria-label="Back To Main Player"></button>
-                    <h1 id="playlist-header-title"></h1><!--playlist-header-title-->
-                </div><!--playlist-header-->  
-                <img id="playlist-cover-art" alt="Cover Art For Current Song"/>            
-                <!--track-list-->      
-                <!--insert-with-javascript-->
-                <ul id="track-list" role="list">
-                    <li role="listitem"></li>
-                    <li role="listitem"></li>
-                    <li role="listitem"></li>
-                    <li role="listitem"></li>
-                    <li role="listitem"></li>
-                    <li role="listitem"></li>
-                    <li role="listitem"></li>
-                    <li role="listitem"></li>
-                    <li role="listitem"></li>
-                    <li role="listitem"></li>
-                </ul><!--track-list-->
-            </div><!--playlist-->
-        </div><!--app-->
+
+                    <!-- Utility Controls -->
+                    <section
+                        class="player-utility-bar"
+                        aria-label="Player utility controls"
+                    >
+                        <button
+                        class="utility-btn"
+                        type="button"
+                        data-action="mute"
+                        aria-label="Mute"
+                        title="Mute / Unmute"
+                        >
+                            <i class="ri-volume-up-line"></i>
+                        </button>
+                        <div class="volume-wrap">
+                            <span class="volume-label">VOL</span>
+                            <input
+                                class="volume-slider"
+                                type="range"
+                                min="0"
+                                max="1"
+                                step="0.01"
+                                value="0.8"
+                                aria-label="Volume"
+                            />
+                        </div><!--/.volume-wrap-->
+                    </section>
+                    <!-- Footer Link -->
+                    <footer class="hero-footer-link">ALL STATIONS</footer>
+                </section>
+                <!-- ===================================================== -->
+                <!-- Right Panel: Sidebar / Info Stack -->
+                <!-- ===================================================== -->
+                <aside class="control-stack">
+                    <!-- Station Presets -->
+                    <section class="stack-card preset-card">
+                        <div class="card-heading-row">
+                            <h3 class="card-title">Station Presets</h3>
+                            <span class="card-meta">4 Live</span>
+                        </div><!--/.card-heading-row-->
+                        <div class="preset-list"></div>
+                    </section>
+                    <!-- Queue / Recently Played -->
+                    <section class="stack-card queue-card">
+                        <div class="card-heading-row">
+                            <h3 class="card-title">Up Next</h3>
+                            <span class="card-meta">Queue</span>
+                        </div><!--/.card-heading-row-->
+                        <div class="track-list"></div>
+                        <div class="soft-divider"></div>
+                        <div class="card-heading-row lower">
+                            <h4 class="sub-card-title">Recently Played</h4>
+                        </div><!--/.card-heading-row-->
+                        <div class="track-list recent-list"></div>
+                    </section>
+                    <!-- Broadcast Info -->
+                    <section class="stack-card broadcast-card">
+                        <div class="card-heading-row">
+                            <h3 class="card-title">Broadcast Info</h3>
+                            <span class="card-meta status-strong">Strong Signal</span>
+                        </div><!--/.card-heading-row-->
+                        <div class="info-grid"></div>
+                    </section>
+                </aside>
+            </main>
+        </div><!--app-shell-->
+        <!-- Core JS -->
+        <script type="module" src="assets/js/app.js"></script>
     </body>
 </html>
