@@ -6,6 +6,15 @@ const STORAGE_KEYS = {
   favorites: "musicmixx-favorites-v1",
 };
 
+const FACT_DISPLAY_INTERVAL = 30000;
+const FACT_VISIBLE_DURATION = 9000;
+const FACT_POPUP_CLASS_DURATION = 1100;
+
+const DEFAULT_FACT = {
+  label: "Music Fact",
+  text: "Music history and artist trivia can make your radio experience feel more interactive and educational.",
+};
+
 const audio = new Audio();
 audio.preload = "metadata";
 audio.volume = 0.8;
@@ -19,6 +28,9 @@ const selectors = {
   trackTitle: document.querySelector(".track-title"),
   trackArtist: document.querySelector(".track-artist"),
   genreChip: document.querySelector(".genre-chip"),
+  didYouKnowCard: document.querySelector(".did-you-know-card"),
+  didYouKnowType: document.querySelector(".did-you-know-type"),
+  didYouKnowText: document.querySelector(".did-you-know-text"),
   presetList: document.querySelector(".preset-list"),
   queueList: document.querySelector(".queue-card .track-list"),
   recentList: document.querySelector(".recent-list"),
@@ -53,6 +65,10 @@ const state = {
   recentHistory: [],
   favorites: loadFavorites(),
   lastVolume: 0.8,
+  currentFactIndex: 0,
+  factRotationTimer: null,
+  factHideTimer: null,
+  factPopupCleanupTimer: null,
 };
 
 function loadFavorites() {
@@ -209,6 +225,194 @@ function getQueueRowIconClass(index) {
   return state.isPlaying ? "ri-pause-mini-fill" : "ri-play-mini-fill";
 }
 
+function getFactsForCurrentTrack() {
+  const station = getCurrentStation();
+  const track = getCurrentTrack();
+  const trackFacts = Array.isArray(track.facts) ? track.facts : [];
+  const stationFacts = Array.isArray(station.stationFacts) ? station.stationFacts : [];
+  const combinedFacts = [...trackFacts, ...stationFacts];
+
+  return combinedFacts.length > 0 ? combinedFacts : [DEFAULT_FACT];
+}
+
+function getFactIconClass(label = "") {
+  const normalized = label.toLowerCase();
+
+  if (normalized.includes("artist")) {
+    return "ri-mic-line";
+  }
+
+  if (normalized.includes("song")) {
+    return "ri-music-2-line";
+  }
+
+  if (
+    normalized.includes("radio") ||
+    normalized.includes("history") ||
+    normalized.includes("programming")
+  ) {
+    return "ri-radio-2-line";
+  }
+
+  if (normalized.includes("genre")) {
+    return "ri-sparkling-line";
+  }
+
+  if (normalized.includes("mood")) {
+    return "ri-disc-line";
+  }
+
+  if (normalized.includes("legacy")) {
+    return "ri-award-line";
+  }
+
+  if (normalized.includes("production")) {
+    return "ri-equalizer-line";
+  }
+
+  return "ri-information-line";
+}
+
+function buildFactTypeMarkup(label, iconClass) {
+  return `
+    <span class="did-you-know-type-icon-wrap" aria-hidden="true">
+      <i class="${iconClass}"></i>
+      <span class="fact-soundwave">
+        <span class="fact-soundwave-bar"></span>
+        <span class="fact-soundwave-bar"></span>
+        <span class="fact-soundwave-bar"></span>
+      </span>
+    </span>
+    <span class="did-you-know-type-label">${label}</span>
+  `;
+}
+
+function getRandomFactDirectionClass() {
+  return Math.random() < 0.5 ? "fact-text-from-left" : "fact-text-from-right";
+}
+
+function clearFactTimers() {
+  if (state.factRotationTimer) {
+    clearInterval(state.factRotationTimer);
+    state.factRotationTimer = null;
+  }
+
+  if (state.factHideTimer) {
+    clearTimeout(state.factHideTimer);
+    state.factHideTimer = null;
+  }
+
+  if (state.factPopupCleanupTimer) {
+    clearTimeout(state.factPopupCleanupTimer);
+    state.factPopupCleanupTimer = null;
+  }
+}
+
+function applyFactContent() {
+  if (!selectors.didYouKnowType || !selectors.didYouKnowText) return;
+
+  const facts = getFactsForCurrentTrack();
+  const fact = facts[state.currentFactIndex % facts.length] || DEFAULT_FACT;
+  const label = fact.label || DEFAULT_FACT.label;
+  const text = fact.text || DEFAULT_FACT.text;
+  const iconClass = getFactIconClass(label);
+
+  selectors.didYouKnowType.innerHTML = buildFactTypeMarkup(label, iconClass);
+  selectors.didYouKnowText.textContent = text;
+}
+
+function hideFactCard({ immediate = false } = {}) {
+  if (!selectors.didYouKnowCard) return;
+
+  if (immediate) {
+    selectors.didYouKnowCard.classList.remove(
+      "is-visible",
+      "popup-enter",
+      "popup-exit",
+      "fact-is-rotating",
+      "fact-text-from-left",
+      "fact-text-from-right"
+    );
+    selectors.didYouKnowCard.setAttribute("aria-hidden", "true");
+    return;
+  }
+
+  selectors.didYouKnowCard.classList.remove("popup-enter", "fact-is-rotating");
+  selectors.didYouKnowCard.classList.add("popup-exit");
+  selectors.didYouKnowCard.classList.remove("is-visible");
+  selectors.didYouKnowCard.setAttribute("aria-hidden", "true");
+}
+
+function showFactCard() {
+  if (!selectors.didYouKnowCard) return;
+
+  const directionClass = getRandomFactDirectionClass();
+
+  selectors.didYouKnowCard.classList.remove(
+    "popup-exit",
+    "fact-text-from-left",
+    "fact-text-from-right",
+    "fact-is-rotating"
+  );
+
+  void selectors.didYouKnowCard.offsetWidth;
+
+  selectors.didYouKnowCard.classList.add("is-visible", "popup-enter", "fact-is-rotating", directionClass);
+  selectors.didYouKnowCard.setAttribute("aria-hidden", "false");
+
+  if (state.factPopupCleanupTimer) {
+    clearTimeout(state.factPopupCleanupTimer);
+  }
+
+  state.factPopupCleanupTimer = window.setTimeout(() => {
+    selectors.didYouKnowCard.classList.remove("popup-enter", "fact-is-rotating");
+  }, FACT_POPUP_CLASS_DURATION);
+}
+
+function showScheduledFactPopup() {
+  if (!state.isPlaying) return;
+
+  applyFactContent();
+  showFactCard();
+
+  if (state.factHideTimer) {
+    clearTimeout(state.factHideTimer);
+  }
+
+  state.factHideTimer = window.setTimeout(() => {
+    hideFactCard();
+
+    const facts = getFactsForCurrentTrack();
+    state.currentFactIndex = (state.currentFactIndex + 1) % facts.length;
+  }, FACT_VISIBLE_DURATION);
+}
+
+function renderCurrentFact() {
+  applyFactContent();
+}
+
+function resetFactRotation() {
+  state.currentFactIndex = 0;
+  clearFactTimers();
+  renderCurrentFact();
+  hideFactCard({ immediate: true });
+}
+
+function stopFactRotation() {
+  clearFactTimers();
+  hideFactCard({ immediate: true });
+}
+
+function startFactRotation() {
+  stopFactRotation();
+
+  if (!state.isPlaying) return;
+
+  state.factRotationTimer = window.setInterval(() => {
+    showScheduledFactPopup();
+  }, FACT_DISPLAY_INTERVAL);
+}
+
 function renderPresets() {
   selectors.presetList.innerHTML = stations
     .map(
@@ -357,6 +561,7 @@ function syncUI() {
   renderQueue();
   renderRecent();
   renderInfo(getCurrentStation());
+  renderCurrentFact();
   updatePlayButton();
   updateShuffleButton();
   updateFavoriteButton();
@@ -371,6 +576,7 @@ function setAudioSourceForCurrentTrack() {
   audio.src = track.src;
   audio.load();
   updateProgressUI();
+  resetFactRotation();
   visualizer.stop({ clearCanvas: true });
 }
 
@@ -403,11 +609,30 @@ const playerControls = createPlayerControls({
   updateProgressUI,
 });
 
+function bindFactRotationToAudio() {
+  audio.addEventListener("play", () => {
+    state.isPlaying = true;
+    startFactRotation();
+  });
+
+  audio.addEventListener("pause", () => {
+    state.isPlaying = false;
+    stopFactRotation();
+  });
+
+  audio.addEventListener("ended", () => {
+    state.isPlaying = false;
+    stopFactRotation();
+  });
+}
+
 function init() {
   updateShuffleButton();
   setAudioSourceForCurrentTrack();
   syncUI();
+  hideFactCard({ immediate: true });
   playerControls.attachEventListeners();
+  bindFactRotationToAudio();
   setClock();
   setInterval(setClock, 1000);
 }
