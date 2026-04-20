@@ -6,7 +6,7 @@ const STORAGE_KEYS = {
   favorites: "musicmixx-favorites-v1",
 };
 
-const FACT_DISPLAY_INTERVAL = 90000; // Every 90 seconds
+const FACT_DISPLAY_INTERVAL = 60000; // Every 60 seconds
 const FACT_VISIBLE_DURATION = 9000; // 9 seconds visible duration for each fact popup
 const FACT_POPUP_CLASS_DURATION = 1100;
 
