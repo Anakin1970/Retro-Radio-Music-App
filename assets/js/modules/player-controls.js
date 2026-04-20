@@ -1,5 +1,6 @@
 export function createPlayerControls({
   audio,
+  djVoiceAudio,
   state,
   selectors,
   visualizer,
@@ -17,27 +18,30 @@ export function createPlayerControls({
   updateMuteButton,
   updateVolumeSliderUI,
   updateProgressUI,
+  playCurrentTrackAudio,
+  playStationDjIntroThenTrack,
+  getActiveAudioElement,
+  stopDjVoicePlayback,
+  syncVolumesAcrossAudio,
 }) {
   function playAudio() {
-    audio
-      .play()
-      .then(() => {
-        state.isPlaying = true;
-        updatePlayButton();
-        renderQueue();
-        visualizer.start();
-      })
-      .catch((error) => {
-        console.error("Playback failed:", error);
-        state.isPlaying = false;
-        updatePlayButton();
-        renderQueue();
-        visualizer.stop();
-      });
+    playCurrentTrackAudio().catch((error) => {
+      console.error("Playback failed:", error);
+      state.isPlaying = false;
+      updatePlayButton();
+      renderQueue();
+      visualizer.stop();
+    });
   }
 
   function pauseAudio() {
-    audio.pause();
+    const activeAudio = getActiveAudioElement();
+    activeAudio.pause();
+
+    if (state.activeAudioType === "dj") {
+      stopDjVoicePlayback();
+    }
+
     state.isPlaying = false;
     updatePlayButton();
     renderQueue();
@@ -76,6 +80,7 @@ export function createPlayerControls({
   function changeTrack(nextIndex, { autoplay = state.isPlaying } = {}) {
     const currentTrack = getCurrentTrack();
     pushRecentTrack(currentTrack);
+    stopDjVoicePlayback();
 
     state.currentTrackIndex = nextIndex;
     setAudioSourceForCurrentTrack();
@@ -91,6 +96,11 @@ export function createPlayerControls({
   }
 
   function playPreviousTrack({ autoplay = state.isPlaying } = {}) {
+    if (state.activeAudioType === "dj") {
+      changeTrack(getPreviousTrackIndex(), { autoplay: true });
+      return;
+    }
+
     if (audio.currentTime > 3) {
       audio.currentTime = 0;
       updateProgressUI();
@@ -121,16 +131,22 @@ export function createPlayerControls({
   }
 
   function toggleMute() {
-    if (audio.muted || audio.volume === 0) {
+    const activeAudio = getActiveAudioElement();
+
+    if (activeAudio.muted || activeAudio.volume === 0) {
       audio.muted = false;
+      djVoiceAudio.muted = false;
       const restoredVolume = state.lastVolume > 0 ? state.lastVolume : 0.8;
       audio.volume = restoredVolume;
+      djVoiceAudio.volume = restoredVolume;
       selectors.volumeSlider.value = String(restoredVolume);
     } else {
-      state.lastVolume = audio.volume || 0.8;
+      state.lastVolume = activeAudio.volume || 0.8;
       audio.muted = true;
+      djVoiceAudio.muted = true;
       selectors.volumeSlider.value = "0";
       audio.volume = 0;
+      djVoiceAudio.volume = 0;
     }
 
     updateMuteButton();
@@ -140,7 +156,9 @@ export function createPlayerControls({
   function handleVolumeChange(event) {
     const value = Number(event.target.value);
     audio.volume = value;
+    djVoiceAudio.volume = value;
     audio.muted = value === 0;
+    djVoiceAudio.muted = value === 0;
 
     if (value > 0) {
       state.lastVolume = value;
@@ -151,6 +169,8 @@ export function createPlayerControls({
   }
 
   function seekTrack(clientX) {
+    if (state.activeAudioType !== "track") return;
+
     const rect = selectors.progressBar.getBoundingClientRect();
     const percentage = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
 
@@ -172,17 +192,14 @@ export function createPlayerControls({
     const nextStationIndex = Number(button.dataset.stationIndex);
     if (Number.isNaN(nextStationIndex)) return;
 
-    if (nextStationIndex === state.currentStationIndex) {
-      playAudio();
-      return;
-    }
+    stopDjVoicePlayback();
 
     state.currentStationIndex = nextStationIndex;
     state.currentTrackIndex = 0;
     state.recentHistory = [];
     setAudioSourceForCurrentTrack();
     syncUI();
-    playAudio();
+    playStationDjIntroThenTrack();
   }
 
   function handleQueueSelection(event) {
@@ -192,7 +209,7 @@ export function createPlayerControls({
     const nextTrackIndex = Number(row.dataset.trackIndex);
     if (Number.isNaN(nextTrackIndex)) return;
 
-    if (nextTrackIndex === state.currentTrackIndex) {
+    if (nextTrackIndex === state.currentTrackIndex && state.activeAudioType === "track") {
       togglePlay();
       return;
     }
@@ -211,7 +228,7 @@ export function createPlayerControls({
     const nextTrackIndex = Number(row.dataset.trackIndex);
     if (Number.isNaN(nextTrackIndex)) return;
 
-    if (nextTrackIndex === state.currentTrackIndex) {
+    if (nextTrackIndex === state.currentTrackIndex && state.activeAudioType === "track") {
       togglePlay();
       return;
     }
@@ -239,6 +256,7 @@ export function createPlayerControls({
     audio.addEventListener("durationchange", updateProgressUI);
 
     audio.addEventListener("play", () => {
+      state.activeAudioType = "track";
       state.isPlaying = true;
       updatePlayButton();
       renderQueue();
@@ -246,6 +264,7 @@ export function createPlayerControls({
     });
 
     audio.addEventListener("pause", () => {
+      if (state.activeAudioType !== "track") return;
       state.isPlaying = false;
       updatePlayButton();
       renderQueue();
@@ -258,6 +277,25 @@ export function createPlayerControls({
 
     audio.addEventListener("emptied", () => {
       visualizer.stop({ clearCanvas: true });
+    });
+
+    djVoiceAudio.addEventListener("play", () => {
+      state.activeAudioType = "dj";
+      state.isPlaying = true;
+      updatePlayButton();
+      renderQueue();
+      visualizer.stop({ clearCanvas: true });
+    });
+
+    djVoiceAudio.addEventListener("pause", () => {
+      if (state.activeAudioType !== "dj" || state.pendingTrackAfterDj) return;
+      state.isPlaying = false;
+      updatePlayButton();
+      renderQueue();
+    });
+
+    djVoiceAudio.addEventListener("loadedmetadata", () => {
+      updateMuteButton();
     });
 
     window.addEventListener("keydown", (event) => {
@@ -298,6 +336,8 @@ export function createPlayerControls({
     window.addEventListener("resize", () => {
       visualizer.resizeCanvas();
     });
+
+    syncVolumesAcrossAudio();
   }
 
   return {

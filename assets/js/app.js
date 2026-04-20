@@ -6,8 +6,8 @@ const STORAGE_KEYS = {
   favorites: "musicmixx-favorites-v1",
 };
 
-const FACT_DISPLAY_INTERVAL = 30000;
-const FACT_VISIBLE_DURATION = 9000;
+const FACT_DISPLAY_INTERVAL = 90000; // Every 90 seconds
+const FACT_VISIBLE_DURATION = 9000; // 9 seconds visible duration for each fact popup
 const FACT_POPUP_CLASS_DURATION = 1100;
 
 const DEFAULT_FACT = {
@@ -18,6 +18,10 @@ const DEFAULT_FACT = {
 const audio = new Audio();
 audio.preload = "metadata";
 audio.volume = 0.8;
+
+const djVoiceAudio = new Audio();
+djVoiceAudio.preload = "auto";
+djVoiceAudio.volume = 0.9;
 
 const selectors = {
   body: document.body,
@@ -69,6 +73,8 @@ const state = {
   factRotationTimer: null,
   factHideTimer: null,
   factPopupCleanupTimer: null,
+  activeAudioType: "track",
+  pendingTrackAfterDj: false,
 };
 
 function loadFavorites() {
@@ -186,17 +192,19 @@ function updateFavoriteButton() {
 function updateMuteButton() {
   let iconClass = "ri-volume-up-line";
 
-  if (audio.muted || audio.volume === 0) {
+  const activeAudio = getActiveAudioElement();
+
+  if (activeAudio.muted || activeAudio.volume === 0) {
     iconClass = "ri-volume-mute-line";
-  } else if (audio.volume <= 0.45) {
+  } else if (activeAudio.volume <= 0.45) {
     iconClass = "ri-volume-down-line";
   }
 
   setButtonIcon(selectors.muteButton, iconClass);
-  selectors.muteButton.classList.toggle("is-toggled", audio.muted || audio.volume === 0);
+  selectors.muteButton.classList.toggle("is-toggled", activeAudio.muted || activeAudio.volume === 0);
   selectors.muteButton.setAttribute(
     "aria-label",
-    audio.muted || audio.volume === 0 ? "Unmute" : "Mute"
+    activeAudio.muted || activeAudio.volume === 0 ? "Unmute" : "Mute"
   );
 }
 
@@ -370,7 +378,7 @@ function showFactCard() {
 }
 
 function showScheduledFactPopup() {
-  if (!state.isPlaying) return;
+  if (!state.isPlaying || state.activeAudioType !== "track") return;
 
   applyFactContent();
   showFactCard();
@@ -406,7 +414,7 @@ function stopFactRotation() {
 function startFactRotation() {
   stopFactRotation();
 
-  if (!state.isPlaying) return;
+  if (!state.isPlaying || state.activeAudioType !== "track") return;
 
   state.factRotationTimer = window.setInterval(() => {
     showScheduledFactPopup();
@@ -580,6 +588,83 @@ function setAudioSourceForCurrentTrack() {
   visualizer.stop({ clearCanvas: true });
 }
 
+function stopDjVoicePlayback() {
+  state.pendingTrackAfterDj = false;
+  djVoiceAudio.pause();
+  djVoiceAudio.currentTime = 0;
+
+  if (state.activeAudioType === "dj") {
+    state.activeAudioType = "track";
+    state.isPlaying = false;
+    updatePlayButton();
+  }
+}
+
+function getActiveAudioElement() {
+  return state.activeAudioType === "dj" ? djVoiceAudio : audio;
+}
+
+function syncVolumesAcrossAudio() {
+  const sliderValue = Number(selectors.volumeSlider?.value ?? state.lastVolume ?? 0.8);
+  audio.volume = sliderValue;
+  djVoiceAudio.volume = sliderValue;
+  audio.muted = sliderValue === 0;
+  djVoiceAudio.muted = sliderValue === 0;
+}
+
+function playCurrentTrackAudio() {
+  stopDjVoicePlayback();
+  state.activeAudioType = "track";
+
+  return audio.play().then(() => {
+    state.isPlaying = true;
+    updatePlayButton();
+    renderQueue();
+    visualizer.start();
+  });
+}
+
+function playStationDjIntroThenTrack() {
+  const station = getCurrentStation();
+  const djVoiceSrc = station.djVoiceSrc;
+
+  stopFactRotation();
+  visualizer.stop({ clearCanvas: true });
+  audio.pause();
+  audio.currentTime = 0;
+
+  if (!djVoiceSrc) {
+    return playCurrentTrackAudio().catch((error) => {
+      console.error("Track playback failed:", error);
+      state.isPlaying = false;
+      updatePlayButton();
+      renderQueue();
+      visualizer.stop();
+    });
+  }
+
+  state.pendingTrackAfterDj = true;
+  state.activeAudioType = "dj";
+  state.isPlaying = true;
+  updatePlayButton();
+  renderQueue();
+
+  djVoiceAudio.src = djVoiceSrc;
+  djVoiceAudio.load();
+
+  return djVoiceAudio.play().catch((error) => {
+    console.error("DJ intro playback failed:", error);
+    stopDjVoicePlayback();
+    return playCurrentTrackAudio().catch((trackError) => {
+      console.error("Track playback failed:", trackError);
+      state.isPlaying = false;
+      updatePlayButton();
+      renderQueue();
+      visualizer.stop();
+    });
+  });
+}
+
 function pushRecentTrack(track) {
   const station = getCurrentStation();
   state.recentHistory = [
@@ -590,6 +675,7 @@ function pushRecentTrack(track) {
 
 const playerControls = createPlayerControls({
   audio,
+  djVoiceAudio,
   state,
   selectors,
   visualizer,
@@ -607,15 +693,22 @@ const playerControls = createPlayerControls({
   updateMuteButton,
   updateVolumeSliderUI,
   updateProgressUI,
+  playCurrentTrackAudio,
+  playStationDjIntroThenTrack,
+  getActiveAudioElement,
+  stopDjVoicePlayback,
+  syncVolumesAcrossAudio,
 });
 
 function bindFactRotationToAudio() {
   audio.addEventListener("play", () => {
+    state.activeAudioType = "track";
     state.isPlaying = true;
     startFactRotation();
   });
 
   audio.addEventListener("pause", () => {
+    if (state.activeAudioType !== "track") return;
     state.isPlaying = false;
     stopFactRotation();
   });
@@ -624,9 +717,41 @@ function bindFactRotationToAudio() {
     state.isPlaying = false;
     stopFactRotation();
   });
+
+  djVoiceAudio.addEventListener("play", () => {
+    state.activeAudioType = "dj";
+    state.isPlaying = true;
+    stopFactRotation();
+    updatePlayButton();
+  });
+
+  djVoiceAudio.addEventListener("pause", () => {
+    if (state.activeAudioType !== "dj" || state.pendingTrackAfterDj) return;
+    state.isPlaying = false;
+    updatePlayButton();
+  });
+
+  djVoiceAudio.addEventListener("ended", () => {
+    if (!state.pendingTrackAfterDj) {
+      state.activeAudioType = "track";
+      state.isPlaying = false;
+      updatePlayButton();
+      return;
+    }
+
+    state.pendingTrackAfterDj = false;
+    playCurrentTrackAudio().catch((error) => {
+      console.error("Track playback after DJ intro failed:", error);
+      state.isPlaying = false;
+      updatePlayButton();
+      renderQueue();
+      visualizer.stop();
+    });
+  });
 }
 
 function init() {
+  syncVolumesAcrossAudio();
   updateShuffleButton();
   setAudioSourceForCurrentTrack();
   syncUI();

@@ -10,6 +10,7 @@ export const stations = [
     tag: "808s",
     signal: "Strong Signal",
     theme: "hiphop",
+    djVoiceSrc: "assets/audio/dj_voices/hip_hop.mp3",
     stationFacts: [
       {
         label: "Radio History",
@@ -117,6 +118,22 @@ export const stations = [
           },
         ],
       },
+      {
+        song: "Around the Way Girl",
+        artist: "LL Cool J",
+        duration: "4:01",
+        src: "assets/audio/around_the_way.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "LL Cool J became one of Def Jam’s earliest breakout stars and helped bring rap to a wider audience.",
+          },
+          {
+            label: "Album Fact",
+            text: "Around the Way Girl is a 1990 hip-hop classic, released as a single from LL Cool J's fourth album, Mama Said Knock You Out.",
+          },
+        ],
+      },
     ],
     recentlyPlayed: [
       {
@@ -143,6 +160,7 @@ export const stations = [
     tag: "Electro",
     signal: "Crystal Clear",
     theme: "electro",
+    djVoiceSrc: "assets/audio/dj_voices/funk.mp3",
     stationFacts: [
       {
         label: "Genre Fact",
@@ -244,6 +262,7 @@ export const stations = [
     tag: "Soul",
     signal: "Smooth Signal",
     theme: "soul",
+    djVoiceSrc: "assets/audio/dj_voices/soul.mp3",
     stationFacts: [
       {
         label: "Genre Fact",
@@ -299,55 +318,87 @@ export const stations = [
           },
           {
             label: "Mood Fact",
-            text: "Modern R&B collaborations often nod to earlier soul traditions while still sounding current.",
+            text: "Modern R&B collaborations often nod to earlier soul traditions while still feeling current.",
           },
         ],
       },
       {
         song: "I Want You Around",
         artist: "Snoh Aalegra",
-        duration: "3:54",
+        duration: "3:28",
         src: "assets/audio/iwantyouaround.mp3",
         facts: [
           {
             label: "Artist Fact",
-            text: "Snoh Aalegra is admired for intimate songwriting and a smooth, emotionally rich vocal style.",
+            text: "Snoh Aalegra’s music often leans into lush arrangements and emotionally detailed vocals.",
           },
           {
-            label: "Song Fact",
-            text: "I Want You Around stands out for its relaxed groove and affectionate, understated tone.",
+            label: "Mood Fact",
+            text: "Songs like this fit late-night radio because they feel personal, soft, and intimate.",
           },
         ],
       },
       {
-        song: "A Natural Woman",
-        artist: "H-Town",
-        duration: "5:49",
+        song: "Natural Woman",
+        artist: "Aretha Franklin",
+        duration: "2:46",
         src: "assets/audio/natural_woman.mp3",
         facts: [
           {
             label: "Artist Fact",
-            text: "H-Town helped define a smoother 1990s R&B sound built around harmony and slow tempo grooves.",
+            text: "Aretha Franklin became known as the Queen of Soul because of her powerhouse voice and commanding delivery.",
           },
           {
-            label: "Genre Fact",
-            text: "Slow-jam records became essential to quiet storm radio formats and late-night playlists.",
+            label: "Legacy Fact",
+            text: "Her recordings helped define what emotional honesty could sound like in soul music.",
           },
         ],
       },
       {
-        song: "Never Can Say Goodbye",
-        artist: "Jackson 5",
-        duration: "2:58",
-        src: "assets/audio/nevercansaygoodbye.mp3",
+        song: "This Woman's Work",
+        artist: "Maxwell",
+        duration: "4:00",
+        src: "assets/audio/womans_work.mp3",
         facts: [
           {
             label: "Artist Fact",
-            text: "The Jackson 5 helped bring youthful energy into soul and pop music during the early 1970s.",
+            text: "Maxwell helped lead the neo-soul movement with smooth vocals and sophisticated songwriting.",
           },
           {
             label: "Song Fact",
-            text: "Never Can Say Goodbye is remembered for its emotional tension between heartbreak and devotion.",
+            text: "This Woman's Work is remembered for its emotional depth and nuanced vocal delivery.",
+          },
+        ],
+      },
+      {
+        song: "Just The Way You Are",
+        artist: "Bruno Mars",
+        duration: "3:56",
+        src: "assets/audio/bruno.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "Bruno Mars is known for his versatile singing and dancing abilities, often blending pop, R&B, and funk influences.",
+          },
+          {
+            label: "Song Fact",
+            text: "Just the Way You Are- is the debut solo single by Bruno Mars, released in 2010 as the lead track from his first studio album, Doo-Wops & Hooligans.",
+          },
+        ],
+      },
+      {
+        song: "Ordinary Love",
+        artist: "Sade",
+        duration: "7:19",
+        src: "assets/audio/sade.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "Sade is known for her smooth, sultry vocals and sophisticated songwriting.",
+          },
+          {
+            label: "Song Fact",
+            text: "Ordinary Love is a classic example of Sade's signature sound, blending jazz, R&B, and pop influences.",
           },
         ],
       },
@@ -377,6 +428,7 @@ export const stations = [
     tag: "Late",
     signal: "Wide Signal",
     theme: "nightdrive",
+    djVoiceSrc: "assets/audio/dj_voices/late_night.mp3",
     stationFacts: [
       {
         label: "Radio Mood",
@@ -452,6 +504,38 @@ export const stations = [
           },
         ],
       },
+      {
+        song: "Till The Cops Come Knockin'",
+        artist: "Maxwell",
+        duration: "6:55",
+        src: "assets/audio/cops.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "Maxwell is known for his smooth vocals and innovative approach to R&B, often incorporating jazz and soul influences.",
+          },
+          {
+            label: "Song Fact",
+            text: "Till The Cops Come Knockin' is a standout track from Maxwell's critically acclaimed album, further establishing his reputation for emotional depth and musical sophistication.",
+          },
+        ],
+      },
+      {
+        song: "Always Be My Baby",
+        artist: "Mariah Carey",
+        duration: "4:42",
+        src: "assets/audio/mariah.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "Mariah Carey is known for her powerful vocals and wide vocal range, often incorporating pop, R&B, and gospel influences.",
+          },
+          {
+            label: "Song Fact",
+            text: "Always Be My Baby is a classic R&B track that showcases Mariah Carey's signature vocal style and production techniques.",
+          },
+        ],
+      },
     ],
     recentlyPlayed: [
       {
@@ -478,6 +562,7 @@ export const stations = [
     tag: "Jazz",
     signal: "Wide Signal",
     theme: "smoothjazz",
+    djVoiceSrc: "assets/audio/dj_voices/jazz.mp3",
     stationFacts: [
       {
         label: "Genre Fact",
