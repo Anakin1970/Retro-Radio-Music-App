@@ -7,7 +7,7 @@ const STORAGE_KEYS = {
 };
 
 const FACT_DISPLAY_INTERVAL = 60000; // Every 60 seconds
-const FACT_VISIBLE_DURATION = 9000; // 9 seconds visible duration for each fact popup
+const FACT_VISIBLE_DURATION = 10000; // 10 seconds visible duration for each fact popup
 const FACT_POPUP_CLASS_DURATION = 1100;
 
 const DEFAULT_FACT = {
