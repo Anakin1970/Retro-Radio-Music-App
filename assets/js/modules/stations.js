@@ -14,7 +14,7 @@ export const stations = [
     stationFacts: [
       {
         label: "Radio History",
-        text: "Hip-hop radio helped break new records by turning local street culture into a mainstream force.",
+        text: "In the early 90's Hip-hop radio helped break new records by turning local street culture into a mainstream force.",
       },
       {
         label: "Genre Fact",
@@ -34,7 +34,7 @@ export const stations = [
           },
           {
             label: "Song Fact",
-            text: "Rock The Bells is known for its hard-hitting beat and confident delivery that defined mid-1980s rap energy.",
+            text: "Despite the title, there are actually no bells heard in the official album version. 'The Bell-Heavy' version was only released on the original 12-inch vinyl.",
           },
         ],
       },
@@ -66,7 +66,7 @@ export const stations = [
           },
           {
             label: "Song Fact",
-            text: "It’s Like That mixed social commentary with a raw beat, showing that hip-hop could speak on real-life struggles.",
+            text: "VH1 ranked it #40 on their '100 Greatest Hip-Hop Songs' list.",
           },
         ],
       },
@@ -82,7 +82,7 @@ export const stations = [
           },
           {
             label: "Song Fact",
-            text: "Brass Monkey became memorable for its playful hook and party-ready energy.",
+            text: "A classic hip-hop track by the Beastie Boys, released in 1986 as part of their debut album, Licensed to Ill.",
           },
         ],
       },
@@ -110,7 +110,7 @@ export const stations = [
         facts: [
           {
             label: "Artist Fact",
-            text: "GZA was known in Wu-Tang Clan for sharp lyricism and cerebral writing.",
+            text: "GZA was known in 'Wu-Tang Clan' for sharp lyricism and cerebral writing.",
           },
           {
             label: "Album Fact",
@@ -184,7 +184,7 @@ export const stations = [
           },
           {
             label: "Song Fact",
-            text: "Planet Rock became a landmark record for merging rap rhythms with electronic dance production.",
+            text: "Released in 1982 by Afrika Bambaataa & the Soulsonic Force, this track is a cornerstone of electro-hip-hop.",
           },
         ],
       },
@@ -216,7 +216,7 @@ export const stations = [
           },
           {
             label: "Song Fact",
-            text: "Egypt, Egypt became a staple for dancers and DJs because of its hypnotic groove and machine-driven beat.",
+            text: "is a landmark electro and hip-hop song released in 1984 by The Egyptian Lover (Greg Broussard).",
           },
         ],
       },
@@ -228,7 +228,7 @@ export const stations = [
         facts: [
           {
             label: "Artist Fact",
-            text: "Snoh Aalegra is known for blending modern soul and R&B with atmospheric production.",
+            text: "Snoh Aalegra (born Shahrzad Fooladi) is a Swedish-born R&B singer and songwriter based in Los Angeles.",
           },
           {
             label: "Mood Fact",
@@ -286,7 +286,7 @@ export const stations = [
           },
           {
             label: "Song Fact",
-            text: "Computer Love became a classic for its futuristic title and smooth electro-funk romance feel.",
+            text: "Released as the fourth single from the album The New Zapp IV U, this track is a staple of 80s 'robo-funk'.",
           },
         ],
       },
@@ -302,7 +302,7 @@ export const stations = [
           },
           {
             label: "Song Fact",
-            text: "Shake Your Body became popular for its dance-floor energy and unforgettable hook.",
+            text: "It reached #7 on the Billboard Hot 100 in May 1979 and became the most successful recording they did for Epic Records.",
           },
         ],
       },
@@ -314,7 +314,7 @@ export const stations = [
         facts: [
           {
             label: "Artist Fact",
-            text: "Kendrick Lamar often mixes sharp lyricism with musical ideas rooted in Black music history.",
+            text: "As of April 2026, he has reached 27 career Grammy Awards, surpassing both Jay-Z and Kanye West.",
           },
           {
             label: "Mood Fact",
@@ -330,7 +330,7 @@ export const stations = [
         facts: [
           {
             label: "Artist Fact",
-            text: "Snoh Aalegra’s music often leans into lush arrangements and emotionally detailed vocals.",
+            text: "Snoh Aalegra-(born Shahrzad Fooladi) is a Swedish-born R&B singer and songwriter based in Los Angeles.",
           },
           {
             label: "Mood Fact",
@@ -340,17 +340,17 @@ export const stations = [
       },
       {
         song: "Natural Woman",
-        artist: "Aretha Franklin",
-        duration: "2:46",
+        artist: "H-Town",
+        duration: "5:49",
         src: "assets/audio/natural_woman.mp3",
         facts: [
           {
             label: "Artist Fact",
-            text: "Aretha Franklin became known as the Queen of Soul because of her powerhouse voice and commanding delivery.",
+            text: "A platinum-selling R&B vocal group from Houston, Texas, that rose to fame in the early 1990s.",
           },
           {
             label: "Legacy Fact",
-            text: "Her recordings helped define what emotional honesty could sound like in soul music.",
+            text: "Their music helped define the sound of 90s hip-hop and R&B.",
           },
         ],
       },
@@ -362,7 +362,7 @@ export const stations = [
         facts: [
           {
             label: "Artist Fact",
-            text: "Maxwell helped lead the neo-soul movement with smooth vocals and sophisticated songwriting.",
+            text:  "Gerald Maxwell Rivera, the influential American R&B and neo-soul singer known for his smooth falsetto.",
           },
           {
             label: "Song Fact",
@@ -378,7 +378,7 @@ export const stations = [
         facts: [
           {
             label: "Artist Fact",
-            text: "Bruno Mars is known for his versatile singing and dancing abilities, often blending pop, R&B, and funk influences.",
+            text: "(born)Peter Gene Hernandez is currently headlining his global 'The Romantic Tour' in support of his latest studio album, The Romantic.",
           },
           {
             label: "Song Fact",
@@ -394,7 +394,7 @@ export const stations = [
         facts: [
           {
             label: "Artist Fact",
-            text: "Sade is known for her smooth, sultry vocals and sophisticated songwriting.",
+            text: "The group is fronted by Nigerian-born British singer-songwriter Sade Adu.",
           },
           {
             label: "Song Fact",
@@ -448,7 +448,7 @@ export const stations = [
         facts: [
           {
             label: "Artist Fact",
-            text: "Snoh Aalegra often creates songs that feel cinematic, which makes them a natural fit for night-drive playlists.",
+            text: "Snoh Aalegra-(born Shahrzad Fooladi) is a Swedish-born R&B singer and songwriter based in Los Angeles.",
           },
           {
             label: "Mood Fact",
@@ -464,11 +464,11 @@ export const stations = [
         facts: [
           {
             label: "Artist Fact",
-            text: "Keyshia Cole became known for emotionally direct vocals and storytelling rooted in classic R&B traditions.",
+            text: "Keyshia Cole is a multi-platinum R&B singer and television personality currently celebrating the anniversary of her debut album, The Way It Is.",
           },
           {
             label: "Song Fact",
-            text: "Songs that blend melodic hooks with rap influence help bridge R&B and hip-hop audiences.",
+            text: "The track served as the lead single for Cole’s third studio album, A Different Me.",
           },
         ],
       },
@@ -480,7 +480,7 @@ export const stations = [
         facts: [
           {
             label: "Artist Fact",
-            text: "Jodeci brought gospel-influenced vocals and hip-hop swagger into 1990s R&B.",
+            text: "Jodeci is an influential American R&B quartet known as the 'Bad Boys of R&B' for their gritty, soulful sound.",
           },
           {
             label: "Genre Fact",
@@ -516,7 +516,7 @@ export const stations = [
           },
           {
             label: "Song Fact",
-            text: "Till The Cops Come Knockin' is a standout track from Maxwell's critically acclaimed album, further establishing his reputation for emotional depth and musical sophistication.",
+            text: "Till The Cops Come Knockin' is a standout track from Maxwell's critically acclaimed album.",
           },
         ],
       },
@@ -528,7 +528,7 @@ export const stations = [
         facts: [
           {
             label: "Artist Fact",
-            text: "Mariah Carey is known for her powerful vocals and wide vocal range, often incorporating pop, R&B, and gospel influences.",
+            text: "Mariah Carey is often referred to as the 'Songbird Supreme,' and is a legendary American singer-songwriter and producer.",
           },
           {
             label: "Song Fact",
@@ -570,7 +570,7 @@ export const stations = [
       },
       {
         label: "History Fact",
-        text: "Jazz radio can also teach listeners about eras, artists, and styles without needing a separate lesson page.",
+        text: "It was created by the African-American community through a fusion of African rhythms and European harmonic structures.",
       },
     ],
     tracks: [
@@ -630,7 +630,7 @@ export const stations = [
         facts: [
           {
             label: "Artist Fact",
-            text: "Ray Charles blended gospel, blues, jazz, and soul into a sound that changed American music.",
+            text: "known professionally as Ray Charles, was a pioneering American musician often called 'The Genius'.",
           },
           {
             label: "Legacy Fact",
@@ -646,7 +646,7 @@ export const stations = [
         facts: [
           {
             label: "Artist Fact",
-            text: "Sam Cooke was a major figure in soul music, known for smooth vocals and deeply expressive songwriting.",
+            text: "was a pioneering American singer, songwriter, and entrepreneur often hailed as the 'King of Soul'.",
           },
           {
             label: "History Fact",
