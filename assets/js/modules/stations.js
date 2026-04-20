@@ -7,7 +7,7 @@ export const stations = [
     host: "DJ Backspin",
     showTitle: "The Golden Age Mix",
     city: "Indianapolis, IN",
-    tag: "808s",
+    tag: "BASS",
     signal: "Strong Signal",
     theme: "hiphop",
     djVoiceSrc: "assets/audio/dj_voices/hip_hop.mp3",
