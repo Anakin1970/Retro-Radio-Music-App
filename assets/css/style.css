@@ -568,7 +568,7 @@
 
 .control-btn.is-toggled,
 .utility-btn.is-toggled {
-  color: var(--text-main);
+  color: var(--accent-rgb);
   box-shadow:
     0 0 0 1px rgba(var(--accent-rgb), 0.16),
     0 10px 24px rgba(0, 0, 0, 0.22),
