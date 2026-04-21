@@ -14,8 +14,39 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"/>
         <!-- Core CSS -->
         <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="stylesheet" href="assets/css/newsletter.css" />
     </head>
-    <body data-theme="hiphop">
+    <body data-theme="hiphop">                
+        <!-- Newsletter Gate -->
+        <!-- ===================================================== -->
+        <div class="newsletter-gate" data-newsletter-gate>
+            <section class="newsletter-panel" aria-labelledby="newsletter-title">
+                <div class="newsletter-content">
+                    <span class="newsletter-badge">MusicMixx Newsletter</span>
+                    <h1 class="newsletter-title" id="newsletter-title">
+                        Stay tuned for new mixes, station drops, and featured tracks.
+                    </h1>
+                    <p class="newsletter-copy">
+                        Enter your email address below to join the newsletter.<br> We promise to only send you the freshest content and hottest updates from the world of music. 
+                    </p>
+                    <form class="newsletter-form" data-newsletter-form>
+                        <input
+                            class="newsletter-input"
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email address"
+                            aria-label="Email address"
+                            data-newsletter-email
+                            required
+                        />
+                        <button class="newsletter-submit" type="submit">
+                            Submit
+                        </button>
+                        <p class="newsletter-message" data-newsletter-message aria-live="polite"></p>
+                    </form>
+                </div><!--/.newsletter-content-->
+            </section><!--/.newsletter-panel-->
+        </div><!--/.newsletter-gate-->
         <!-- ===================================================== -->
         <!-- Animated Background -->
         <!-- ===================================================== -->
@@ -29,7 +60,6 @@
             <div class="bg-shape shape-7"></div>
             <div class="bg-shape shape-8"></div>
         </div><!--animated-bg-->
-
         <!-- ===================================================== -->
         <!-- App Shell -->
         <!-- ===================================================== -->
@@ -52,7 +82,6 @@
                             <i class="ri-menu-3-line"></i>
                         </button>
                     </header><!--/.top-bar-->
-
                     <!-- Station Header -->
                     <section class="station-header">
                         <span class="live-badge">ON AIR</span>
@@ -61,7 +90,6 @@
                         <p class="show-title">Now Broadcasting: The Golden Era Mix</p>
                         <p class="station-slogan">Golden era all day</p>
                     </section><!--/.station-header-->
-
                     <!-- Hero Dial -->
                     <section class="hero-dial-wrap" aria-label="Station dial display">
                         <div class="hero-dial">
@@ -72,7 +100,6 @@
                             <div class="signal-glow"></div>
                         </div><!--/.hero-dial-->
                     </section><!--/.hero-dial-wrap-->
-
                     <!-- Now Playing -->
                     <section class="now-playing" aria-live="polite">
                         <p class="eyebrow">NOW PLAYING</p>
@@ -80,7 +107,6 @@
                         <p class="track-artist">LL Cool J</p>
                         <span class="genre-chip">Hip-Hop Classics</span>
                     </section><!--/.now-playing-->
-
                     <!-- Did You Know Card -->
                     <section class="did-you-know-card" aria-live="polite">
                         <div class="did-you-know-header">
@@ -90,8 +116,7 @@
                                     <span class="on-air-fact-dot"></span>
                                     <span class="on-air-fact-text">ON AIR FACT</span>
                                 </span>
-                            </div>
-
+                        </div><!--/.did-you-know-badge-wrap -->
                             <span class="did-you-know-type">
                                 <span class="did-you-know-type-icon-wrap" aria-hidden="true">
                                     <i class="ri-mic-line"></i>
@@ -103,13 +128,11 @@
                                 </span>
                                 <span class="did-you-know-type-label">Artist Fact</span>
                             </span>
-                        </div>
-
+                        </div><!--/.did-you-know-header-->
                         <p class="did-you-know-text">
                             Hip-hop’s golden era helped shape sampling, DJ culture, and lyrical storytelling.
                         </p>
                     </section><!--/.did-you-know-card-->
-
                     <!-- Progress / Time Bar -->
                     <section class="wave-strip" aria-label="Track progress">
                         <span class="time-label current-time">0:00</span>
@@ -124,7 +147,6 @@
                         </button>
                         <span class="time-label total-time">0:00</span>
                     </section><!--/.wave-strip-->
-
                     <!-- Audio Visualizer -->
                     <section
                         id="audio-visualizer-container"
@@ -132,7 +154,6 @@
                     >
                         <canvas id="audio-visualizer"></canvas>
                     </section><!--/.audio-visualizer-->
-
                     <!-- Transport Controls -->
                     <section
                         class="transport-controls"
@@ -183,8 +204,7 @@
                         >
                             <i class="ri-heart-line"></i>
                         </button>
-                    </section>
-
+                    </section><!--/.transport-controls-->
                     <!-- Utility Controls -->
                     <section
                         class="player-utility-bar"
@@ -211,12 +231,10 @@
                                 aria-label="Volume"
                             />
                         </div><!--/.volume-wrap-->
-                    </section>
-
+                    </section><!--/.player-utility-bar-->
                     <!-- Footer Link -->
                     <footer class="hero-footer-link">ALL STATIONS</footer>
-                </section>
-
+                </section><!--/.hero-console-->
                 <!-- ===================================================== -->
                 <!-- Right Panel: Sidebar / Info Stack -->
                 <!-- ===================================================== -->
@@ -228,8 +246,7 @@
                             <span class="card-meta">4 Live</span>
                         </div><!--/.card-heading-row-->
                         <div class="preset-list"></div>
-                    </section>
-
+                    </section><!--/.preset-card-->
                     <!-- Queue / Recently Played -->
                     <section class="stack-card queue-card">
                         <div class="card-heading-row">
@@ -242,8 +259,7 @@
                             <h4 class="sub-card-title">Recently Played</h4>
                         </div><!--/.card-heading-row-->
                         <div class="track-list recent-list"></div>
-                    </section>
-
+                    </section><!--/.queue-card-->
                     <!-- Broadcast Info -->
                     <section class="stack-card broadcast-card">
                         <div class="card-heading-row">
@@ -251,12 +267,12 @@
                             <span class="card-meta status-strong">Strong Signal</span>
                         </div><!--/.card-heading-row-->
                         <div class="info-grid"></div>
-                    </section>
+                    </section><!--/.broadcast-card-->
                 </aside>
             </main>
         </div><!--app-shell-->
-
         <!-- Core JS -->
         <script type="module" src="assets/js/app.js"></script>
+        <script src="assets/js/newsletter.js"></script>
     </body>
 </html>
