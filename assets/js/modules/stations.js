@@ -221,21 +221,53 @@ export const stations = [
         ],
       },
       {
-        song: "Whoa",
-        artist: "Snoh Aalegra",
-        duration: "4:05",
-        src: "assets/audio/whoa.mp3",
+        song: "Purple Rain",
+        artist: "Prince",
+        duration: "8:40",
+        src: "assets/audio/purple_rain.mp3",
         facts: [
           {
             label: "Artist Fact",
-            text: "Snoh Aalegra is known for blending modern soul and R&B with atmospheric production.",
+            text: "Prince was a musical innovator who blended rock, funk, pop, and electronic elements into a unique sound.",
           },
           {
-            label: "Mood Fact",
-            text: "Tracks like Whoa show how electronic textures still shape contemporary soul music today.",
+            label: "Song Fact",
+            text: "The soundtrack, Purple Rain, was the first Prince album to reach #1 on the Billboard 200, spending 24 consecutive weeks at the top.",
+          },
+        ],
+      }, 
+      {
+        song: "Not Just Knee Deep",
+        artist: "Funkadelic",
+        duration: "15:21",
+        src: "assets/audio/knee_deep.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "Funkadelic, led by George Clinton, was known for their psychedelic take on funk music.",
+          },
+          {
+            label: "Song Fact",
+            text: "Not Just Knee Deep is a funk classic that features a long groove and became a favorite for sampling in hip-hop.",
           },
         ],
       },
+      {
+        song: "Atomic Dog",
+        artist: "George Clinton",
+        duration: "4:42",
+        src: "assets/audio/atomic.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "George Clinton is a key figure in funk music, known for his eccentric style and influential productions.",
+          },
+          {
+            label: "Song Fact",
+            text: "Atomic Dog became one of George Clinton's most famous songs, known for its catchy hook and playful lyrics.",
+          },
+        ],
+      },     
     ],
     recentlyPlayed: [
       {
@@ -402,6 +434,38 @@ export const stations = [
           },
         ],
       },
+      {
+        song: "Back To Life",
+        artist: "Soul II Soul",
+        duration: "3:48",
+        src: "assets/audio/back2life.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "Soul II Soul was known for their innovative approach to R&B and their ability to blend different musical styles.",
+          },
+          {
+            label: "Song Fact",
+            text: "Back To Life is a standout track that showcases the group's signature sound and emotional depth.",
+          },
+        ],
+      },
+      {
+        song: "Superman Lover",
+        artist: "Johnny 'Guitar' Watson",
+        duration: "5:45",
+        src: "assets/audio/superman.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "Johnny 'Guitar' Watson is a legendary blues guitarist known for his smooth playing and soulful delivery.",
+          },
+          {
+            label: "Song Fact",
+            text: "Superman Lover is one of Johnny 'Guitar' Watson's most popular tracks, showcasing his signature style.",
+          },
+        ],
+      },
     ],
     recentlyPlayed: [
       {
@@ -536,6 +600,38 @@ export const stations = [
           },
         ],
       },
+      {
+        song: "Whoa",
+        artist: "Snoh Aalegra",
+        duration: "4:05",
+        src: "assets/audio/whoa.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "Snoh Aalegra is known for blending modern soul and R&B with atmospheric production.",
+          },
+          {
+            label: "Mood Fact",
+            text: "Tracks like Whoa show how electronic textures still shape contemporary soul music today.",
+          },
+        ],
+      },
+      {
+        song: "Que Sera Sera",
+        artist: "Sly & The Family Stone",
+        duration: "5:19",
+        src: "assets/audio/que_sera.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "Sly & The Family Stone were pioneers of funk and soul, known for their energetic performances and socially conscious lyrics.",
+          },
+          {
+            label: "Song Fact",
+            text: "Que Sera Sera is a soulful track that combines catchy melodies with a laid-back groove, making it a great fit for late-night listening.",
+          },
+        ],
+      },      
     ],
     recentlyPlayed: [
       {
@@ -667,6 +763,22 @@ export const stations = [
           {
             label: "Piano Fact",
             text: "Tatum’s rich chord work and speed helped expand what jazz piano could sound like.",
+          },
+        ],
+      },
+      {
+        song: "Twinkle Twinkle",
+        artist: "Stevie Wonder",
+        duration: "3:12",
+        src: "assets/audio/twinkle.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "Stevie Wonder is a legendary musician known for his soulful voice, multi-instrumental talents, and innovative songwriting.",
+          },
+          {
+            label: "Song Fact",
+            text: "Twinkle Twinkle is a lesser-known track that showcases Stevie Wonder's ability to create intimate and heartfelt music.",
           },
         ],
       },
