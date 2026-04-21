@@ -86,8 +86,8 @@ body[data-theme="smoothjazz"] {
   --text-main: #eefaf7;
   --text-soft: rgba(238, 250, 247, 0.76);
   --text-muted: rgba(238, 250, 247, 0.46);
-  --amber: #4fd1c5;
-  --bronze: #2c7a7b;
+  --amber: gold;
+  --bronze: #f2cb07;
   --bronze-soft: #86e2d8;
   --line-soft: rgba(255, 255, 255, 0.06);
   --accent-rgb: 56, 178, 172;
