@@ -237,10 +237,10 @@ export const stations = [
         ],
       }, 
       {
-        song: "Not Just Knee Deep",
+        song: "Flash Light",
         artist: "Funkadelic",
-        duration: "15:21",
-        src: "assets/audio/knee_deep.mp3",
+        duration: "4:27",
+        src: "assets/audio/flashlight.mp3",
         facts: [
           {
             label: "Artist Fact",
@@ -248,7 +248,7 @@ export const stations = [
           },
           {
             label: "Song Fact",
-            text: "Not Just Knee Deep is a funk classic that features a long groove and became a favorite for sampling in hip-hop.",
+            text: "Flash Light is a funk classic that features a long groove and became a favorite for sampling in hip-hop.",
           },
         ],
       },
@@ -796,4 +796,169 @@ export const stations = [
       },
     ],
   },
+  {
+    id: "classic-rock",
+    name: "Classic Rock Revival",
+    frequency: "101.1 FM",
+    slogan: "Guitars, drums, and timeless anthems",
+    host: "DJ Thunderstrum",
+    showTitle: "Classic Rock Revival",
+    city: "Los Angeles, CA",
+    tag: "Rock",
+    signal: "Powerful Signal",
+    theme: "rock",
+    djVoiceSrc: "assets/audio/dj_voices/rock.mp3",
+    stationFacts: [
+      {
+        label: "Genre Fact",
+        text: "Classic rock radio often focuses on guitar-driven songs from the 1960s to the 1980s.",
+      },
+      {
+        label: "Cultural Fact",
+        text: "Many classic rock songs became anthems for youth culture and are still celebrated today.",
+      },
+    ],
+    tracks: [
+      {
+        song: "What's Up",
+        artist: "Four Non-Blondes",
+        duration: "4:52",
+        src: "assets/audio/whatsup.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "Four Non-Blondes were a one-hit wonder band from the early 1990s, known for their distinctive sound and the powerful vocals of lead singer Linda Perry.",
+          },
+          {
+            label: "Song Fact",
+            text: "What's Up is the band's most famous song, released in 1992, and it became an anthem for its catchy chorus and relatable lyrics about frustration and searching for meaning.",
+          },
+        ],
+      },
+      {
+        song: "Sweet Child O' Mine",
+        artist: "Guns N' Roses",
+        duration: "5:03",
+        src: "assets/audio/sweetchild.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "Guns N' Roses is a legendary rock band known for their raw energy, powerful vocals, and iconic guitar riffs.",
+          },
+          {
+            label: "Song Fact",
+            text: "Sweet Child O' Mine is one of the band's most famous songs, released in 1987, and it features one of the most recognizable guitar intros in rock history.",
+          },
+        ],
+      },
+      {
+        song: "Back In Black",
+        artist: "AC/DC",
+        duration: "4:13",
+        src: "assets/audio/backinblack.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "AC/DC is an Australian rock band formed in 1973, known for their high-energy live performances and hit songs.",
+          },
+          {
+            label: "Song Fact",
+            text: "Back In Black is one of the best-selling albums of all time, featuring the iconic title track and other memorable songs.",
+          },
+        ],
+      },
+      {
+        song: "Take On Me",
+        artist: "a-ha",
+        duration: "4:04",
+        src: "assets/audio/takeonme.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "a-ha is a Norwegian synth-pop band formed in 1982, known for their catchy melodies and innovative music videos.",
+          },
+          {
+            label: "Song Fact",
+            text: "Take On Me is one of the most recognizable songs from the 1980s, featuring a distinctive music video that was groundbreaking for its time.",
+          },
+        ],
+      },
+      {
+        song: "I Was Made For Lovin' You",
+        artist: "Kiss",
+        duration: "3:58",
+        src: "assets/audio/lovingyou.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "Kiss is an American rock band formed in 1973, known for their theatrical live performances and hit songs.",
+          },
+          {
+            label: "Song Fact",
+            text: "I Was Made For Lovin' You is one of Kiss's most popular songs, released in 1979, and it features their signature guitar riffs and powerful vocals.",
+          },
+        ],
+      },
+      {
+        song: "Smells Like Teen Spirit",
+        artist: "Nirvana",
+        duration: "4:38",
+        src: "assets/audio/teen_spirit.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "Nirvana was a groundbreaking grunge band from the early 1990s, known for their raw sound and influential music.",
+          },
+          {
+            label: "Song Fact",
+            text: "Smells Like Teen Spirit is one of Nirvana's most famous songs, released in 1991, and it became an anthem for Generation X with its powerful guitar riffs and rebellious lyrics.",
+          },
+        ],
+      },
+      {
+        song: "Every Breath You Take",
+        artist: "The Police",
+        duration: "3:48",
+        src: "assets/audio/breath.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "The Police were a British rock band formed in 1977, known for their unique blend of rock, reggae, and punk influences.",
+          },
+          {
+            label: "Song Fact",
+            text: "Every Breath You Take is one of The Police's most famous songs, released in 1983, and it features a memorable guitar riff and haunting lyrics about obsession.",
+          },
+        ],
+      },
+      {
+        song: "Heathens",
+        artist: "Twenty One Pilots",
+        duration: "3:37",
+        src: "assets/audio/heathens.mp3",
+        facts: [
+          {
+            label: "Artist Fact",
+            text: "Twenty One Pilots is an American musical duo formed in 2009, known for their eclectic style that blends elements of rock, hip-hop, and pop.",
+          },
+          {
+            label: "Song Fact",
+            text: "Heathens is one of the band's most popular songs, released in 2016, and it was featured on the soundtrack for the film Suicide Squad, gaining widespread acclaim for its dark and moody atmosphere.",
+          },
+        ],
+      }
+    ],
+    recentlyPlayed: [
+      {
+        song: "Bohemian Rhapsody",
+        artist: "Queen",
+        duration: "5:55",
+      },
+      {
+        song: "Hotel California",
+        artist: "Eagles",
+        duration: "6:30",
+      },
+    ],  
+  }
 ];
