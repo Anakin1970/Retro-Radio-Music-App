@@ -87,11 +87,25 @@ body[data-theme="smoothjazz"] {
   --text-soft: rgba(238, 250, 247, 0.76);
   --text-muted: rgba(238, 250, 247, 0.46);
   --amber: gold;
-  --bronze: #f2cb07;
+  --bronze: #7b6e2c;
   --bronze-soft: #86e2d8;
   --line-soft: rgba(255, 255, 255, 0.06);
   --accent-rgb: 56, 178, 172;
   --accent-soft: #86e2d8;
+}
+
+body[data-theme="rock"] {
+  --bg-main: #1a1a1a;
+  --bg-gradient-top: #2c2c2c;
+  --text-main: #f0f0f0;
+  --text-soft: rgba(240, 240, 240, 0.78);
+  --text-muted: rgba(240, 240, 240, 0.48);
+  --amber: #f87171;
+  --bronze: #b91c1c;
+  --bronze-soft: #fca5a5;
+  --line-soft: rgba(255, 255, 255, 0.06);
+  --accent-rgb: 248, 113, 113;
+  --accent-soft: #fca5a5;
 }
 
 html {
