@@ -799,7 +799,7 @@ export const stations = [
   {
     id: "classic-rock",
     name: "Classic Rock Revival",
-    frequency: "101.1 FM",
+    frequency: "109.5 FM",
     slogan: "Guitars, drums, and timeless anthems",
     host: "DJ Thunderstrum",
     showTitle: "Classic Rock Revival",
