@@ -562,9 +562,7 @@
   line-height: 1;
 }
 
-.control-btn.large i {
-  font-size: 1.55rem;
-}
+.control-btn.large i { font-size: 1.55rem;}
 
 .control-btn.is-toggled,
 .utility-btn.is-toggled {
@@ -682,9 +680,7 @@
   gap: 10px;
 }
 
-.card-heading-row.lower {
-  margin-top: 4px;
-}
+.card-heading-row.lower { margin-top: 4px;}
 
 .card-title,
 .sub-card-title {
@@ -700,9 +696,7 @@
   text-transform: uppercase;
 }
 
-.status-strong {
-  color: rgba(var(--accent-rgb), 0.95);
-}
+.status-strong { color: rgba(var(--accent-rgb), 0.95);}
 
 /* PRESETS */
 
@@ -958,7 +952,7 @@ body {
     transform: translate3d(0, 0, 0) scale(1);
   }
   50% {
-    transform: translate3d(0, -14px, 0) scale(1.06);
+    transform: translate3d(0, -100px, 0) scale(1.06);
   }
 }
 
@@ -1331,42 +1325,26 @@ body[data-theme="smoothjazz"] {
   transform-origin: bottom center;
 }
 
-.fact-soundwave-bar:nth-child(1) {
-  height: 5px;
-}
+.fact-soundwave-bar:nth-child(1) { height: 5px;}
 
-.fact-soundwave-bar:nth-child(2) {
-  height: 10px;
-}
+.fact-soundwave-bar:nth-child(2) { height: 10px;}
 
-.fact-soundwave-bar:nth-child(3) {
-  height: 7px;
-}
+.fact-soundwave-bar:nth-child(3) { height: 7px; }
 
 .did-you-know-card.fact-is-rotating .fact-soundwave {
   opacity: 1;
   transform: translateY(-1px);
 }
 
-.did-you-know-card.fact-is-rotating .fact-soundwave-bar:nth-child(1) {
-  animation: factWaveBounceOne 0.5s ease-in-out infinite;
-}
+.did-you-know-card.fact-is-rotating .fact-soundwave-bar:nth-child(1) { animation: factWaveBounceOne 0.5s ease-in-out infinite;}
 
-.did-you-know-card.fact-is-rotating .fact-soundwave-bar:nth-child(2) {
-  animation: factWaveBounceTwo 0.45s ease-in-out infinite;
-}
+.did-you-know-card.fact-is-rotating .fact-soundwave-bar:nth-child(2) { animation: factWaveBounceTwo 0.45s ease-in-out infinite; }
 
-.did-you-know-card.fact-is-rotating .fact-soundwave-bar:nth-child(3) {
-  animation: factWaveBounceThree 0.55s ease-in-out infinite;
-}
+.did-you-know-card.fact-is-rotating .fact-soundwave-bar:nth-child(3) { animation: factWaveBounceThree 0.55s ease-in-out infinite;}
 
-.did-you-know-card.fact-fade-in .did-you-know-type {
-  animation: factTypeSlideIn 0.48s ease;
-}
+.did-you-know-card.fact-fade-in .did-you-know-type { animation: factTypeSlideIn 0.48s ease;}
 
-.did-you-know-card.fact-fade-in .did-you-know-text {
-  animation: factTextSlideIn 0.56s cubic-bezier(0.22, 1, 0.36, 1);
-}
+.did-you-know-card.fact-fade-in .did-you-know-text { animation: factTextSlideIn 0.56s cubic-bezier(0.22, 1, 0.36, 1);}
 
 @keyframes factWaveBounceOne {
   0%,
@@ -1474,9 +1452,7 @@ body[data-theme="smoothjazz"] {
   filter: blur(0);
 }
 
-.did-you-know-card.is-visible::before {
-  opacity: 1;
-}
+.did-you-know-card.is-visible::before { opacity: 1; }
 
 .did-you-know-card.popup-enter {
   animation: factPopupReveal 0.72s cubic-bezier(0.22, 1, 0.36, 1);
@@ -1510,21 +1486,13 @@ body[data-theme="smoothjazz"] {
 /* RANDOM TEXT ENTRY DIRECTION */
 /* ===================================================== */
 
-.did-you-know-card.popup-enter.fact-text-from-left .did-you-know-type {
-  animation: factLabelSlideFromLeft 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
+.did-you-know-card.popup-enter.fact-text-from-left .did-you-know-type { animation: factLabelSlideFromLeft 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
 
-.did-you-know-card.popup-enter.fact-text-from-left .did-you-know-text {
-  animation: factBodySlideFromLeft 0.72s cubic-bezier(0.22, 1, 0.36, 1);
-}
+.did-you-know-card.popup-enter.fact-text-from-left .did-you-know-text { animation: factBodySlideFromLeft 0.72s cubic-bezier(0.22, 1, 0.36, 1);}
 
-.did-you-know-card.popup-enter.fact-text-from-right .did-you-know-type {
-  animation: factLabelSlideFromRight 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
+.did-you-know-card.popup-enter.fact-text-from-right .did-you-know-type { animation: factLabelSlideFromRight 0.5s cubic-bezier(0.22, 1, 0.36, 1);}
 
-.did-you-know-card.popup-enter.fact-text-from-right .did-you-know-text {
-  animation: factBodySlideFromRight 0.72s cubic-bezier(0.22, 1, 0.36, 1);
-}
+.did-you-know-card.popup-enter.fact-text-from-right .did-you-know-text { animation: factBodySlideFromRight 0.72s cubic-bezier(0.22, 1, 0.36, 1); }
 
 @keyframes factLabelSlideFromLeft {
   0% {
@@ -1576,4 +1544,561 @@ body[data-theme="smoothjazz"] {
     transform: translateX(0);
     filter: blur(0);
   }
+}
+
+/* ================================
+   MUSICMIXX TYPOGRAPHY UPGRADE
+   Design-only update.
+   Does not affect music app functionality.
+================================ */
+
+/* Main app body text */
+body,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-body);
+}
+
+/* Strong visual headings inside the radio app */
+.app-brand,
+.station-name,
+.track-title,
+.show-title,
+.section-title,
+.panel-title,
+.drawer-title,
+.modal-title {
+  font-family: var(--font-heading);
+}
+
+/* Radio frequency display */
+.frequency-display {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+
+/* Small radio UI labels */
+.live-badge,
+.eyebrow,
+.genre-chip,
+.station-slogan,
+.status-pill,
+.mini-label,
+.player-label {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+/* Track and playlist text */
+.track-title { font-weight: 700;}
+
+.track-artist,
+.station-slogan,
+.show-title { font-family: var(--font-body); }
+
+/* Buttons feel cleaner and more app-like */
+button,
+.control-btn,
+.icon-btn,
+.theme-btn,
+.station-btn,
+.play-btn {
+  font-family: var(--font-body);
+  font-weight: 700;
+}
+
+/* Time, duration, and technical display text */
+.time-display,
+.duration,
+.current-time,
+.total-time,
+.track-time,
+.frequency-meta {
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+/* ===================================================== */
+/* RESPONSIVE MUSIC PLAYER LAYOUT FIX */
+/* Prevent player/card overflow at every screen size */
+#player-section,
+#player-section * { min-width: 0;}
+
+#player-section { overflow-x: hidden;}
+
+#player-section .site-container { max-width: 1240px;}
+
+#player-section .app-shell {
+  width: 100%;
+  max-width: 1400px;
+  min-height: auto;
+  margin: 0 auto;
+  padding: 24px 0 0;
+  overflow-x: hidden;
+}
+
+#player-section .radio-layout {
+  width: 100%;
+  max-width: 100%;
+  min-height: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.9fr);
+  gap: 22px;
+  align-items: start;
+}
+
+#player-section .hero-console,
+#player-section .control-stack,
+#player-section .stack-card {
+  width: 100%;
+  max-width: 100%;
+}
+
+#player-section .hero-console { min-height: auto; }
+
+/* Keep the dial responsive without letting it push layout wider */
+#player-section .hero-dial {
+  width: clamp(220px, 42vw, 340px);
+  max-width: 100%;
+}
+
+/* Keep progress bar, visualizer, and utility controls contained */
+#player-section .wave-strip,
+#player-section #audio-visualizer-container,
+#player-section .player-utility-bar,
+#player-section .volume-wrap {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Queue rows and preset buttons should never force horizontal scroll */
+#player-section .preset-button,
+#player-section .track-row,
+#player-section .info-row {
+  min-width: 0;
+  max-width: 100%;
+}
+
+#player-section .preset-button > div,
+#player-section .track-copy,
+#player-section .info-value { min-width: 0; }
+
+/* ===================================================== */
+/* LARGE TABLETS / SMALL LAPTOPS */
+/* Earlier breakpoint keeps the player from feeling squeezed. */
+/* ===================================================== */
+
+@media (max-width: 1180px) {
+  #player-section .radio-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  #player-section .control-stack {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  #player-section .hero-dial {
+    width: clamp(240px, 46vw, 330px);
+  }
+}
+
+/* ===================================================== */
+/* TABLETS */
+/* ===================================================== */
+
+@media (max-width: 900px) {
+  #player-section .app-shell {
+    padding-top: 18px;
+  }
+
+  #player-section .hero-console,
+  #player-section .stack-card {
+    border-radius: 26px;
+  }
+
+  #player-section .hero-console {
+    padding: 22px;
+  }
+
+  #player-section .stack-card {
+    padding: 20px;
+  }
+
+  #player-section .frequency-display {
+    font-size: clamp(46px, 9vw, 64px);
+  }
+
+  #player-section .station-name {
+    font-size: clamp(22px, 4vw, 26px);
+  }
+
+  #player-section .track-title {
+    font-size: clamp(22px, 4.6vw, 30px);
+  }
+
+  #player-section .hero-dial {
+    width: clamp(230px, 56vw, 320px);
+  }
+
+  #player-section #audio-visualizer-container {
+    height: 92px;
+  }
+}
+
+/* ===================================================== */
+/* MOBILE */
+/* ===================================================== */
+
+@media (max-width: 640px) {
+  #player-section .site-container { width: min(100% - 20px, var(--site-max));  }
+
+  #player-section .app-shell { padding: 14px 0 0; }
+
+  #player-section .radio-layout { gap: 18px;  }
+
+  #player-section .hero-console {
+    padding: 18px 14px;
+    border-radius: 24px;
+  }
+
+  #player-section .stack-card {
+    padding: 18px 14px;
+    border-radius: 22px;
+  }
+
+  #player-section .top-bar {
+    height: auto;
+    min-height: 48px;
+    gap: 10px;
+  }
+
+  #player-section .icon-btn {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+  }
+
+  #player-section .app-brand {
+    flex: 1;
+    min-width: 0;
+    justify-content: center;
+    padding: 9px 12px;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #player-section .station-header { margin-top: 18px;  }
+
+  #player-section .frequency-display {
+    margin-top: 16px;
+    font-size: clamp(40px, 14vw, 56px);
+    line-height: 0.95;
+  }
+
+  #player-section .station-name {
+    margin-top: 10px;
+    font-size: clamp(20px, 6vw, 24px);
+  }
+
+  #player-section .show-title {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  #player-section .station-slogan {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  #player-section .hero-dial-wrap { margin-top: 20px;  }
+
+  #player-section .hero-dial { width: clamp(210px, 72vw, 285px);  }
+
+  #player-section .now-playing { margin-top: 16px; }
+
+  #player-section .track-title {
+    font-size: clamp(22px, 7vw, 28px);
+    line-height: 1.12;
+  }
+
+  #player-section .track-artist { font-size: 14px;  }
+
+  #player-section .genre-chip {
+    max-width: 100%;
+    text-align: center;
+    line-height: 1.35;
+  }
+
+  #player-section .did-you-know-card.is-visible { max-height: 360px; }
+
+  #player-section .did-you-know-header {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  #player-section .did-you-know-badge-wrap { flex-wrap: wrap;  }
+
+  #player-section .did-you-know-type { white-space: normal; }
+
+  #player-section .did-you-know-text {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  #player-section .wave-strip {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  #player-section .time-label { display: none; }
+
+  #player-section #audio-visualizer-container {
+    height: 78px;
+    margin-top: 18px;
+    border-radius: 18px;
+  }
+
+  #player-section .transport-controls {
+    margin-top: 20px;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  #player-section .control-btn.small {
+    width: 42px;
+    height: 42px;
+  }
+
+  #player-section .control-btn.medium {
+    width: 50px;
+    height: 50px;
+  }
+
+  #player-section .control-btn.large {
+    width: 64px;
+    height: 64px;
+  }
+
+  #player-section .player-utility-bar {
+    margin-top: 18px;
+    gap: 10px;
+  }
+
+  #player-section .utility-btn {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+  }
+
+  #player-section .volume-wrap {
+    min-width: 0;
+    gap: 10px;
+    padding: 0 12px;
+  }
+
+  #player-section .volume-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+
+  #player-section .hero-footer-link { padding-top: 20px; }
+
+  #player-section .preset-button {
+    gap: 12px;
+    padding: 13px 14px;
+  }
+
+  #player-section .preset-tag {
+    flex: 0 0 auto;
+    font-size: 9px;
+    padding: 6px 9px;
+  }
+
+  #player-section .track-row {
+    grid-template-columns: 34px minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 11px 12px;
+  }
+
+  #player-section .track-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  #player-section .row-title { font-size: 13px; }
+
+  #player-section .row-sub,
+  #player-section .row-time { font-size: 11px; }
+
+  #player-section .info-row {
+    grid-template-columns: 68px minmax(0, 1fr);
+    gap: 10px;
+    padding: 11px 12px;
+  }
+
+  #player-section .info-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+
+  #player-section .info-value { font-size: 13px; }
+}
+
+/* ===================================================== */
+/* SMALL MOBILE */
+/* ===================================================== */
+
+@media (max-width: 430px) {
+  #player-section .site-container {
+    width: min(100% - 16px, var(--site-max));
+  }
+
+  #player-section .hero-console {
+    padding: 16px 12px;
+    border-radius: 22px;
+  }
+
+  #player-section .stack-card {
+    padding: 16px 12px;
+  }
+
+  #player-section .app-brand {
+    font-size: 11px;
+    padding: 8px 10px;
+  }
+
+  #player-section .brand-dot {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 8px;
+  }
+
+  #player-section .live-badge {
+    font-size: 10px;
+    padding: 7px 12px;
+  }
+
+  #player-section .frequency-display { font-size: clamp(36px, 15vw, 48px); }
+
+  #player-section .hero-dial { width: clamp(190px, 76vw, 250px);}
+
+  #player-section .transport-controls { gap: 8px; }
+
+  #player-section .control-btn.small {
+    width: 38px;
+    height: 38px;
+  }
+
+  #player-section .control-btn.medium {
+    width: 46px;
+    height: 46px;
+  }
+
+  #player-section .control-btn.large {
+    width: 58px;
+    height: 58px;
+  }
+
+  #player-section .control-btn i { font-size: 1.05rem; }
+
+  #player-section .control-btn.large i { font-size: 1.35rem; }
+
+  #player-section .player-utility-bar {  align-items: stretch;  }
+
+  #player-section .volume-wrap {
+    min-height: 44px;
+    padding: 0 10px;
+  }
+
+  #player-section .card-heading-row {
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  #player-section .card-title,
+  #player-section .sub-card-title { font-size: 15px; }
+
+  #player-section .card-meta {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  #player-section .preset-button { align-items: flex-start; }
+
+  #player-section .track-row { grid-template-columns: 32px minmax(0, 1fr);  }
+
+  #player-section .track-row .row-time {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: -4px;
+  }
+
+  #player-section .track-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  #player-section .info-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+/* ===================================================== */
+/* EXTRA SMALL MOBILE */
+/* ===================================================== */
+
+@media (max-width: 360px) {
+  #player-section .hero-console { padding: 14px 10px; }
+
+  #player-section .icon-btn {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+
+  #player-section .app-brand {
+    font-size: 10px;
+    letter-spacing: 0.04em;
+  }
+
+  #player-section .frequency-display { font-size: 34px; }
+
+  #player-section .hero-dial { width: 188px; }
+
+  #player-section .transport-controls { gap: 6px;}
+
+  #player-section .control-btn.small {
+    width: 34px;
+    height: 34px;
+  }
+
+  #player-section .control-btn.medium {
+    width: 42px;
+    height: 42px;
+  }
+
+  #player-section .control-btn.large {
+    width: 54px;
+    height: 54px;
+  }
+
+  #player-section .utility-btn {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+
+  #player-section .volume-wrap { min-height: 40px; }
 }
