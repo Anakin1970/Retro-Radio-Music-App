@@ -1,10 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const gate = document.querySelector("[data-newsletter-gate]");
+function initNewsletterForm() {
   const form = document.querySelector("[data-newsletter-form]");
   const emailInput = document.querySelector("[data-newsletter-email]");
   const message = document.querySelector("[data-newsletter-message]");
 
-  if (!gate || !form || !emailInput || !message) return;
+  if (!form || !emailInput || !message || form.dataset.initialized === "true") return;
+
+  form.dataset.initialized = "true";
 
   const STORAGE_KEY = "musicmixx_newsletter_emails";
 
@@ -25,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       const parsed = saved ? JSON.parse(saved) : [];
-
       return Array.isArray(parsed) ? parsed : [];
     } catch (error) {
       console.error("Could not read newsletter emails from localStorage:", error);
@@ -69,12 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function hideNewsletterGate() {
-    setTimeout(() => {
-      gate.classList.add("hidden");
-    }, 900);
-  }
-
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -102,12 +96,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (result.reason === "duplicate") {
       showMessage("Welcome Back Subscriber", "success");
       form.reset();
-      hideNewsletterGate();
       return;
     }
 
     showMessage("Thank you for subscribing!", "success");
     form.reset();
-    hideNewsletterGate();
   });
-});
+}
+
+document.addEventListener("DOMContentLoaded", initNewsletterForm);
+document.addEventListener("musicmixx:page-loaded", initNewsletterForm);

@@ -1,9 +1,12 @@
 import { stations } from "./modules/stations.js";
 import { createAudioVisualizer } from "./modules/audio-visualizer.js";
 import { createPlayerControls } from "./modules/player-controls.js";
+import { applySavedTheme, saveTheme } from "./site-theme.js";
 
 const STORAGE_KEYS = {
   favorites: "musicmixx-favorites-v1",
+  currentStation: "musicmixx-current-station-v1",
+  currentTheme: "musicmixx-current-theme-v1",
 };
 
 const FACT_DISPLAY_INTERVAL = 90000; // Every 90 seconds
@@ -62,7 +65,7 @@ const visualizer = createAudioVisualizer({
 });
 
 const state = {
-  currentStationIndex: 0,
+  currentStationIndex: loadCurrentStationIndex(),
   currentTrackIndex: 0,
   isPlaying: false,
   isShuffle: false,
@@ -76,6 +79,24 @@ const state = {
   activeAudioType: "track",
   pendingTrackAfterDj: false,
 };
+
+function loadCurrentStationIndex() {
+  const savedStationId = localStorage.getItem(STORAGE_KEYS.currentStation);
+  const savedTheme = localStorage.getItem(STORAGE_KEYS.currentTheme);
+
+  const stationIndex = stations.findIndex((station) => {
+    return station.id === savedStationId || station.theme === savedTheme;
+  });
+
+  return stationIndex >= 0 ? stationIndex : 0;
+}
+
+function saveCurrentStation() {
+  const station = getCurrentStation();
+
+  localStorage.setItem(STORAGE_KEYS.currentStation, station.id);
+  saveTheme(station.theme);
+}
 
 function loadFavorites() {
   try {
@@ -144,7 +165,10 @@ function setButtonIcon(button, iconClass) {
 
 function applyCurrentStationTheme() {
   const station = getCurrentStation();
+
   selectors.body.dataset.theme = station.theme;
+  saveCurrentStation();
+
   visualizer.refreshTheme();
   updateVolumeSliderUI();
 }
@@ -751,6 +775,7 @@ function bindFactRotationToAudio() {
 }
 
 function init() {
+  applySavedTheme();
   syncVolumesAcrossAudio();
   updateShuffleButton();
   setAudioSourceForCurrentTrack();
