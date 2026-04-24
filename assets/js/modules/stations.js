@@ -372,17 +372,17 @@ export const stations = [
       },
       {
         song: "Natural Woman",
-        artist: "Aretha Franklin",
-        duration: "2:46",
+        artist: "H-Town",
+        duration: "5:49",
         src: "assets/audio/natural_woman.mp3",
         facts: [
           {
             label: "Artist Fact",
-            text: "Aretha Franklin became known as the Queen of Soul because of her powerhouse voice and commanding delivery.",
+            text: "H-Town is a legendary R&B group known for their smooth harmonies and romantic ballads.",
           },
           {
             label: "Legacy Fact",
-            text: "Her recordings helped define what emotional honesty could sound like in soul music.",
+            text: "Their recordings helped define what emotional honesty could sound like in soul music.",
           },
         ],
       },
