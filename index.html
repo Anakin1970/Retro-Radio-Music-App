@@ -7,272 +7,385 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>MusicMixx Radio App | Dashboard</title>
-        <meta name="description" content="The premiere radio app on the Internet." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!-- Remix Icons -->
+        <title>MusicMixx Radio App | Curated Stations and Live Music Experience</title>
+        <meta name="description" content="Tune into MusicMixx Radio App for curated stations, immersive listening, featured genres, and a polished radio-style music experience. Explore our online radio app with a live player, station lineup, and interactive features designed for music lovers." />
+        <meta name="keywords" content="online radio app, music stations, radio player, streaming music, hip hop radio, soul radio, rock radio, jazz radio"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Icons-CDN-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"/>
-        <!-- Core CSS -->
+        <!--Core-CSS-->
         <link rel="stylesheet" href="assets/css/style.css" />
+        <!--CSS Files-->
+        <link rel="stylesheet" href="assets/css/site.css" />        
         <link rel="stylesheet" href="assets/css/newsletter.css" />
     </head>
-    <body data-theme="hiphop">                
-        <!-- Newsletter Gate -->
-        <!-- ===================================================== -->
-        <div class="newsletter-gate" data-newsletter-gate>
-            <section class="newsletter-panel" aria-labelledby="newsletter-title">
-                <div class="newsletter-content">
-                    <span class="newsletter-badge">MusicMixx Newsletter</span>
-                    <h1 class="newsletter-title" id="newsletter-title">
-                        Stay tuned for new mixes, station drops, and featured tracks.
-                    </h1>
-                    <p class="newsletter-copy">
-                        Enter your email address below to join the newsletter.<br> We promise to only send you the freshest content and hottest updates from the world of music. 
-                    </p>
-                    <form class="newsletter-form" data-newsletter-form>
-                        <input
-                            class="newsletter-input"
-                            type="email"
-                            name="email"
-                            placeholder="Enter your email address"
-                            aria-label="Email address"
-                            data-newsletter-email
-                            required
-                        />
-                        <button class="newsletter-submit" type="submit">
-                            Submit
-                        </button>
-                        <p class="newsletter-message" data-newsletter-message aria-live="polite"></p>
-                    </form>
-                </div><!--/.newsletter-content-->
-            </section><!--/.newsletter-panel-->
-        </div><!--/.newsletter-gate-->
-        <!-- ===================================================== -->
-        <!-- Animated Background -->
-        <!-- ===================================================== -->
-        <div class="animated-background" aria-hidden="true">
-            <div class="bg-shape shape-1"></div>
-            <div class="bg-shape shape-2"></div>
-            <div class="bg-shape shape-3"></div>
-            <div class="bg-shape shape-4"></div>
-            <div class="bg-shape shape-5"></div>
-            <div class="bg-shape shape-6"></div>
-            <div class="bg-shape shape-7"></div>
-            <div class="bg-shape shape-8"></div>
-        </div><!--animated-bg-->
-        <!-- ===================================================== -->
-        <!-- App Shell -->
-        <!-- ===================================================== -->
-        <div class="app-shell">
-            <main class="radio-layout">
-                <!-- ===================================================== -->
-                <!-- Left Panel: Main Player / Hero Console -->
-                <!-- ===================================================== -->
+    <body data-theme="hiphop">
+      <!--[if lt IE 7]>
+          <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+      <a class="skip-link" href="#main-content">Skip to main content</a>
+      <!-- Background -->
+      <div class="animated-background" aria-hidden="true">
+          <div class="bg-shape shape-1"></div>
+          <div class="bg-shape shape-2"></div>
+          <div class="bg-shape shape-3"></div>
+          <div class="bg-shape shape-4"></div>
+          <div class="bg-shape shape-5"></div>
+          <div class="bg-shape shape-6"></div>
+          <div class="bg-shape shape-7"></div>
+          <div class="bg-shape shape-8"></div>
+      </div><!-- End Background -->
+      <!-- Site Header -->
+      <header class="site-header">
+        <div class="site-container">
+          <div class="site-header-inner">
+            <a class="site-logo" href="index.html" aria-label="MusicMixx home">
+              <span class="site-logo-dot"></span>
+              <span>MusicMixx Radio App</span>
+            </a>
+            <nav class="site-nav" aria-label="Main navigation">
+              <ul class="site-nav-list">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="assets/about.html">About</a></li>
+                <li><a href="assets/stations.html">Stations</a></li>
+                <li><a href="assets/schedule.html">Schedule</a></li>
+                <li><a href="assets/contact.html">Contact</a></li>
+              </ul>
+            </nav>
+          </div><!-- End Header Inner -->
+        </div><!-- End Site Container -->
+      </header>
+      <main id="main-content">
+        <!-- Homepage Hero -->
+        <section class="page-hero">
+          <div class="site-container">
+            <div class="page-hero-grid">
+              <div class="page-hero-copy">
+                <p class="eyebrow-site">Streaming Music Experience</p>
+                <h1>MusicMixx Radio App: a stylish online radio app with curated music stations</h1>
+                <p class="page-hero-text">
+                  MusicMixx is built for listeners who want more than a basic playlist. Jump between handpicked stations, explore different moods and genres, and stay locked into a polished radio-style experience designed to feel live, immersive, and always in motion.
+                </p>
+                <div class="hero-actions">
+                  <a class="site-btn primary" href="#player-section">Launch Player</a>
+                  <a class="site-btn secondary" href="assets/stations.html">Explore Stations</a>
+                </div><!-- End Hero Actions -->
+                <ul class="feature-list">
+                  <li>Curated stations built around mood, genre, and time of day</li>
+                  <li>Interactive player with queue, favorites, and live visual energy</li>
+                  <li>A smooth listening experience designed for desktop and mobile devices</li>
+                </ul>
+              </div><!-- End Hero Copy -->
+              <div class="page-hero-media">
+                <img
+                  src="assets/img/home.png"
+                  alt="Studio headphones and audio mixing equipment for an online radio app"
+                />
+              </div><!-- End Hero Media -->
+            </div><!-- End Hero Grid -->
+          </div><!-- End Site Container -->
+        </section>
+        <!-- Quick Info Cards -->
+        <section class="content-section">
+          <div class="site-container">
+            <div class="info-card-grid">
+              <article class="site-card">
+                <h2>Always-on Listening</h2>
+                <p>
+                  From late-night slow jams to high-energy hip-hop and rock rotation, MusicMixx is designed to keep the music flowing with station-driven listening that feels like real radio, not random shuffle.
+                </p>
+              </article><!-- End Site Card -->
+              <article class="site-card">
+                <h2>Built around the station</h2>
+                <p>
+                  Every part of the app is centered on station identity — the sound, the mood, the pacing, and the now-playing experience — so each visit feels like tuning into a different broadcast world.
+                </p>
+              </article><!-- End Site Card -->
+              <article class="site-card">
+                <h2>Fun Facts</h2>
+                <p>
+                  Fun facts about the artists, tracks, and genres you're listening to are sprinkled throughout the experience, giving you something new to discover with every station and every song.
+                </p>
+              </article><!-- End Site Card -->
+            </div><!-- End Info Card Grid -->
+          </div><!-- End Site Container -->
+        </section><!-- End Quick Info Cards -->
+        <!-- Existing Radio App -->
+        <section class="content-section" id="player-section">
+          <div class="site-container">
+            <div class="section-heading">
+              <h2>Live Player</h2>
+              <p>
+                Tune in to the live MusicMixx player and move through a station experience shaped by curated rotation, visual motion, and radio-inspired controls.
+              </p>
+            </div><!-- End Section Heading -->
+          </div><!-- End Site Container -->
+          <div class="app-shell">
+            <div class="site-container">
+              <div class="radio-layout">
+                <!-- Left Panel -->
                 <section class="hero-console">
-                    <!-- Top Bar -->
-                    <header class="top-bar">
-                        <button class="icon-btn" type="button" aria-label="Search">
-                            <i class="ri-search-line"></i>
-                        </button>
-                        <div class="app-brand">
-                            <span class="brand-dot"></span>
-                            <span>Music Mixx FM</span>
-                        </div><!--/.app-brand-->
-                        <button class="icon-btn" type="button" aria-label="Menu">
-                            <i class="ri-menu-3-line"></i>
-                        </button>
-                    </header><!--/.top-bar-->
-                    <!-- Station Header -->
-                    <section class="station-header">
-                        <span class="live-badge">ON AIR</span>
-                        <h1 class="frequency-display">94.5 FM</h1>
-                        <h2 class="station-name">Hip-Hop Classics</h2>
-                        <p class="show-title">Now Broadcasting: The Golden Era Mix</p>
-                        <p class="station-slogan">Golden era all day</p>
-                    </section><!--/.station-header-->
-                    <!-- Hero Dial -->
-                    <section class="hero-dial-wrap" aria-label="Station dial display">
-                        <div class="hero-dial">
-                            <div class="dial-ring ring-1"></div>
-                            <div class="dial-ring ring-2"></div>
-                            <div class="dial-ring ring-3"></div>
-                            <div class="dial-core"></div>
-                            <div class="signal-glow"></div>
-                        </div><!--/.hero-dial-->
-                    </section><!--/.hero-dial-wrap-->
-                    <!-- Now Playing -->
-                    <section class="now-playing" aria-live="polite">
-                        <p class="eyebrow">NOW PLAYING</p>
-                        <h3 class="track-title">Rock The Bells</h3>
-                        <p class="track-artist">LL Cool J</p>
-                        <span class="genre-chip">Hip-Hop Classics</span>
-                    </section><!--/.now-playing-->
-                    <!-- Did You Know Card -->
-                    <section class="did-you-know-card" aria-live="polite">
-                        <div class="did-you-know-header">
-                            <div class="did-you-know-badge-wrap">
-                                <span class="did-you-know-badge">Did You Know?</span>
-                                <span class="on-air-fact-indicator" aria-hidden="true">
-                                    <span class="on-air-fact-dot"></span>
-                                    <span class="on-air-fact-text">ON AIR FACT</span>
-                                </span>
-                        </div><!--/.did-you-know-badge-wrap -->
-                            <span class="did-you-know-type">
-                                <span class="did-you-know-type-icon-wrap" aria-hidden="true">
-                                    <i class="ri-mic-line"></i>
-                                    <span class="fact-soundwave">
-                                        <span class="fact-soundwave-bar"></span>
-                                        <span class="fact-soundwave-bar"></span>
-                                        <span class="fact-soundwave-bar"></span>
-                                    </span>
-                                </span>
-                                <span class="did-you-know-type-label">Artist Fact</span>
-                            </span>
-                        </div><!--/.did-you-know-header-->
-                        <p class="did-you-know-text">
-                            Hip-hop’s golden era helped shape sampling, DJ culture, and lyrical storytelling.
-                        </p>
-                    </section><!--/.did-you-know-card-->
-                    <!-- Progress / Time Bar -->
-                    <section class="wave-strip" aria-label="Track progress">
-                        <span class="time-label current-time">0:00</span>
-                        <button
-                            class="progress-bar"
-                            type="button"
-                            aria-label="Seek through track"
-                            title="Seek"
-                        >
-                            <span class="progress-fill"></span>
-                            <span class="progress-thumb"></span>
-                        </button>
-                        <span class="time-label total-time">0:00</span>
-                    </section><!--/.wave-strip-->
-                    <!-- Audio Visualizer -->
-                    <section
-                        id="audio-visualizer-container"
-                        aria-label="Audio visualizer"
+                  <header class="top-bar">
+                    <button class="icon-btn" type="button" aria-label="Search">
+                      <i class="ri-search-line"></i>
+                    </button>
+                    <div class="app-brand">
+                      <span class="brand-dot"></span>
+                      <span>Music Mixx FM</span>
+                    </div><!-- End App Brand -->
+                    <button class="icon-btn" type="button" aria-label="Menu">
+                      <i class="ri-menu-3-line"></i>
+                    </button>
+                  </header>
+                  <section class="station-header">
+                    <span class="live-badge">ON AIR</span>
+                    <p class="frequency-display">94.5 FM</p>
+                    <h2 class="station-name">Hip-Hop Classics</h2>
+                    <p class="show-title">Now Broadcasting: The Golden Era Mix</p>
+                    <p class="station-slogan">Golden era all day</p>
+                  </section><!-- End Station Header -->
+                  <section class="hero-dial-wrap" aria-label="Station dial display">
+                    <div class="hero-dial">
+                      <div class="dial-ring ring-1"></div>
+                      <div class="dial-ring ring-2"></div>
+                      <div class="dial-ring ring-3"></div>
+                      <div class="dial-core"></div>
+                      <div class="signal-glow"></div>
+                    </div><!-- End Hero Dial -->
+                  </section>
+                  <section class="now-playing" aria-live="polite">
+                    <p class="eyebrow">NOW PLAYING</p>
+                    <h3 class="track-title">Rock The Bells</h3>
+                    <p class="track-artist">LL Cool J</p>
+                    <span class="genre-chip">Hip-Hop Classics</span>
+                  </section><!-- End Now Playing -->
+                  <section class="did-you-know-card" aria-live="polite">
+                    <div class="did-you-know-header">
+                      <div class="did-you-know-badge-wrap">
+                        <span class="did-you-know-badge">Did You Know?</span>
+                        <span class="on-air-fact-indicator" aria-hidden="true">
+                          <span class="on-air-fact-dot"></span>
+                          <span class="on-air-fact-text">ON AIR FACT</span>
+                        </span><!-- End On Air Fact Indicator -->
+                      </div><!-- End Did You Know Header -->
+                      <span class="did-you-know-type">
+                        <span class="did-you-know-type-icon-wrap" aria-hidden="true">
+                          <i class="ri-mic-line"></i>
+                          <span class="fact-soundwave">
+                            <span class="fact-soundwave-bar"></span>
+                            <span class="fact-soundwave-bar"></span>
+                            <span class="fact-soundwave-bar"></span>
+                          </span><!-- Fact Soundwave -->
+                        </span><!-- End Type Icon Wrap -->
+                        <span class="did-you-know-type-label">Artist Fact</span>
+                      </span><!-- End Did You Know Type -->
+                    </div><!-- End Did You Know Header -->
+                    <p class="did-you-know-text">
+                      Hip-hop’s golden era helped shape sampling, DJ culture, and lyrical storytelling.
+                    </p>
+                  </section><!-- End Did You Know Card -->
+                  <section class="wave-strip" aria-label="Track progress">
+                    <span class="time-label current-time">0:00</span>
+                    <button
+                      class="progress-bar"
+                      type="button"
+                      aria-label="Seek through track"
+                      title="Seek"
                     >
-                        <canvas id="audio-visualizer"></canvas>
-                    </section><!--/.audio-visualizer-->
-                    <!-- Transport Controls -->
-                    <section
-                        class="transport-controls"
-                        aria-label="Playback transport controls"
+                      <span class="progress-fill"></span>
+                      <span class="progress-thumb"></span>
+                    </button>
+                    <span class="time-label total-time">0:00</span>
+                  </section><!-- End Wave Strip -->
+                  <section id="audio-visualizer-container" aria-label="Audio visualizer">
+                    <canvas id="audio-visualizer"></canvas>
+                  </section><!-- End Audio Visualizer -->
+                  <section
+                    class="transport-controls"
+                    aria-label="Playback transport controls"
+                  >
+                    <button
+                      class="control-btn small"
+                      type="button"
+                      data-action="shuffle"
+                      aria-label="Shuffle"
+                      title="Shuffle"
                     >
-                        <button
-                            class="control-btn small"
-                            type="button"
-                            data-action="shuffle"
-                            aria-label="Shuffle"
-                            title="Shuffle"
-                        >
-                            <i class="ri-shuffle-line"></i>
-                        </button>
-                        <button
-                            class="control-btn medium"
-                            type="button"
-                            data-action="previous"
-                            aria-label="Previous"
-                            title="Previous"
-                        >
-                            <i class="ri-skip-back-mini-fill"></i>
-                        </button>
-                        <button
-                            class="control-btn large active"
-                            type="button"
-                            data-action="play-toggle"
-                            aria-label="Play"
-                            title="Play / Pause"
-                        >
-                            <i class="ri-play-fill"></i>
-                        </button>
-                        <button
-                            class="control-btn medium"
-                            type="button"
-                            data-action="next"
-                            aria-label="Next"
-                            title="Next"
-                        >
-                            <i class="ri-skip-forward-mini-fill"></i>
-                        </button>
-                        <button
-                            class="control-btn small heart"
-                            type="button"
-                            data-action="favorite"
-                            aria-label="Favorite"
-                            title="Favorite"
-                        >
-                            <i class="ri-heart-line"></i>
-                        </button>
-                    </section><!--/.transport-controls-->
-                    <!-- Utility Controls -->
-                    <section
-                        class="player-utility-bar"
-                        aria-label="Player utility controls"
+                      <i class="ri-shuffle-line"></i>
+                    </button>
+                    <button
+                      class="control-btn medium"
+                      type="button"
+                      data-action="previous"
+                      aria-label="Previous"
+                      title="Previous"
                     >
-                        <button
-                            class="utility-btn"
-                            type="button"
-                            data-action="mute"
-                            aria-label="Mute"
-                            title="Mute / Unmute"
-                        >
-                            <i class="ri-volume-up-line"></i>
-                        </button>
-                        <div class="volume-wrap">
-                            <span class="volume-label">VOL</span>
-                            <input
-                                class="volume-slider"
-                                type="range"
-                                min="0"
-                                max="1"
-                                step="0.01"
-                                value="0.8"
-                                aria-label="Volume"
-                            />
-                        </div><!--/.volume-wrap-->
-                    </section><!--/.player-utility-bar-->
-                    <!-- Footer Link -->
-                    <footer class="hero-footer-link">ALL STATIONS</footer>
-                </section><!--/.hero-console-->
-                <!-- ===================================================== -->
-                <!-- Right Panel: Sidebar / Info Stack -->
-                <!-- ===================================================== -->
+                      <i class="ri-skip-back-mini-fill"></i>
+                    </button>
+                    <button
+                      class="control-btn large active"
+                      type="button"
+                      data-action="play-toggle"
+                      aria-label="Play"
+                      title="Play / Pause"
+                    >
+                      <i class="ri-play-fill"></i>
+                    </button>
+                    <button
+                      class="control-btn medium"
+                      type="button"
+                      data-action="next"
+                      aria-label="Next"
+                      title="Next"
+                    >
+                      <i class="ri-skip-forward-mini-fill"></i>
+                    </button>
+                    <button
+                      class="control-btn small heart"
+                      type="button"
+                      data-action="favorite"
+                      aria-label="Favorite"
+                      title="Favorite"
+                    >
+                      <i class="ri-heart-line"></i>
+                    </button>
+                  </section><!-- End Transport Controls -->
+                  <section class="player-utility-bar"
+                    aria-label="Player utility controls"                    
+                  >
+                    <button
+                      class="utility-btn"
+                      type="button"
+                      data-action="mute"
+                      aria-label="Mute"
+                      title="Mute / Unmute"
+                    >
+                      <i class="ri-volume-up-line"></i>
+                    </button>
+                    <div class="volume-wrap">
+                      <span class="volume-label">VOL</span>
+                      <input
+                        class="volume-slider"
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.01"
+                        value="0.8"
+                        aria-label="Volume"
+                      />
+                    </div><!-- End Volume Control -->
+                  </section><!-- End Player Utility Bar -->
+                  <footer class="hero-footer-link">ALL STATIONS</footer>
+                </section><!-- End Player Controls -->
+                <!-- Right Panel -->
                 <aside class="control-stack">
-                    <!-- Station Presets -->
-                    <section class="stack-card preset-card">
-                        <div class="card-heading-row">
-                            <h3 class="card-title">Station Presets</h3>
-                            <span class="card-meta">4 Live</span>
-                        </div><!--/.card-heading-row-->
-                        <div class="preset-list"></div>
-                    </section><!--/.preset-card-->
-                    <!-- Queue / Recently Played -->
-                    <section class="stack-card queue-card">
-                        <div class="card-heading-row">
-                            <h3 class="card-title">Up Next</h3>
-                            <span class="card-meta">Queue</span>
-                        </div><!--/.card-heading-row-->
-                        <div class="track-list"></div>
-                        <div class="soft-divider"></div>
-                        <div class="card-heading-row lower">
-                            <h4 class="sub-card-title">Recently Played</h4>
-                        </div><!--/.card-heading-row-->
-                        <div class="track-list recent-list"></div>
-                    </section><!--/.queue-card-->
-                    <!-- Broadcast Info -->
-                    <section class="stack-card broadcast-card">
-                        <div class="card-heading-row">
-                            <h3 class="card-title">Broadcast Info</h3>
-                            <span class="card-meta status-strong">Strong Signal</span>
-                        </div><!--/.card-heading-row-->
-                        <div class="info-grid"></div>
-                    </section><!--/.broadcast-card-->
+                  <section class="stack-card preset-card">
+                    <div class="card-heading-row">
+                      <h3 class="card-title">Station Presets</h3>
+                      <span class="card-meta">4 Live</span>
+                    </div><!-- End Card Heading Row -->
+                    <div class="preset-list"></div>
+                  </section><!-- End Preset Card -->
+                  <section class="stack-card queue-card">
+                    <div class="card-heading-row">
+                      <h3 class="card-title">Up Next</h3>
+                      <span class="card-meta">Queue</span>
+                    </div><!-- End Card Heading Row -->
+                    <div class="track-list"></div>
+                    <div class="soft-divider"></div>
+                    <div class="card-heading-row lower">
+                      <h4 class="sub-card-title">Recently Played</h4>
+                    </div><!-- End Card Heading Row -->
+                    <div class="track-list recent-list"></div>
+                  </section><!-- End Queue Card -->
+                  <section class="stack-card broadcast-card">
+                    <div class="card-heading-row">
+                      <h3 class="card-title">Broadcast Info</h3>
+                      <span class="card-meta status-strong">Strong Signal</span>
+                    </div><!-- End Card Heading Row -->
+                    <div class="info-grid"></div>
+                  </section><!-- End Broadcast Card -->
                 </aside>
-            </main>
-        </div><!--app-shell-->
-        <!-- Core JS -->
-        <script type="module" src="assets/js/app.js"></script>
-        <script src="assets/js/newsletter.js"></script>
-    </body>
+              </div><!-- End Control Stack -->
+            </div><!-- End Player Controls -->
+          </div><!-- End Player Controls -->
+        </section><!-- End Player Controls -->
+        <!-- Extra Homepage Content -->
+        <section class="content-section">
+          <div class="site-container">
+            <div class="section-heading">
+              <h2>Inside the MusicMixx experience</h2>
+              <p>MusicMixx is designed to feel bigger than a simple music player. From curated stations and branded moods to a structured weekly lineup and a polished on-air interface, every part of the experience is built to feel like a place listeners can return to, explore, and stay connected with.</p>
+            </div><!-- End Section Heading -->
+            <div class="site-card">
+              <ol class="ordered-list">
+                <li>Browse genre-based music stations</li>
+                <li>Play, pause, mute, and skip tracks</li>
+                <li>Review queue and recently played songs</li>
+                <li>Check station schedule and curated programming</li>
+                <li>Subscribe to receive updates from the newsletter form on the Contact page</li>
+              </ol>
+            </div><!-- End Site Card -->
+          </div><!-- End Site Container -->
+        </section><!-- End Extra Content -->
+      </main>
+      <!--Footer-->
+      <footer class="site-footer">
+          <div class="site-container">
+              <div class="footer-grid">
+                  <div class="footer-brand-column">
+                      <a class="footer-logo-link" href="../index.html" aria-label="MusicMixx home">
+                          <img class="footer-logo" src="assets/img/musicmixx-logo.png" alt="MusicMixx logo" />
+                      </a>
+                      <div class="footer-socials" aria-label="MusicMixx social media links">
+                          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="MusicMixx on YouTube">
+                              <i class="ri-youtube-line" aria-hidden="true"></i>
+                          </a>
+
+                          <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer" aria-label="MusicMixx on Spotify">
+                              <i class="ri-spotify-line" aria-hidden="true"></i>
+                          </a>
+
+                          <a href="https://github.com/Anakin1970/music_player" target="_blank" rel="noopener noreferrer" aria-label="MusicMixx on GitHub">
+                              <i class="ri-github-line" aria-hidden="true"></i>
+                          </a>
+                      </div><!-- End Footer Socials -->
+                  </div><!-- End Footer Brand Column -->
+                  <div>
+                      <h2 class="footer-title">Site Links</h2>
+                      <ul class="footer-links">
+                          <li><a href="../index.html">Home</a></li>
+                          <li><a href="about.html">About</a></li>
+                          <li><a href="stations.html">Stations</a></li>
+                          <li><a href="schedule.html">Schedule</a></li>
+                          <li><a href="contact.html">Contact</a></li>
+                      </ul>
+                  </div><!-- End Footer Links -->
+                  <div>
+                      <h2 class="footer-title">External Music Links</h2>
+                      <ul class="footer-links">
+                          <li><a href="https://www.billboard.com/" target="_blank" rel="noopener noreferrer">Billboard</a></li>
+                          <li><a href="https://www.grammy.com/" target="_blank" rel="noopener noreferrer">GRAMMY</a></li>
+                          <li><a href="https://www.fcc.gov/" target="_blank" rel="noopener noreferrer">FCC</a></li>
+                      </ul>
+                  </div><!-- End External Music Links -->
+              </div><!-- End Footer Grid -->
+              <p class="footer-bottom text-center">
+                &copy; <span id="copyright-year"></span> - MusicMixx Radio App -
+              </p>
+          </div><!-- End Site Container -->
+      </footer>
+    <!--Core Scripts-->
+    <script type="module" src="assets/js/app.js"></script>
+    <script type="module" src="assets/js/site-router.js"></script>
+    <script src="assets/js/newsletter.js"></script>
+    <!--Custom Script-->
+    <script>
+      const copyrightYear = document.getElementById("copyright-year");
+
+      if (copyrightYear) {
+        copyrightYear.textContent = new Date().getFullYear();
+      }
+    </script>
+  </body>
 </html>
