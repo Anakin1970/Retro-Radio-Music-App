@@ -555,3 +555,149 @@ select { font-family: var(--site-font);}
     justify-content: center;
   }
 }
+/* ================================
+   MUSICMIXX REMIX ICON CARD UPGRADE   
+================================ */
+
+.icon-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top center, rgba(var(--site-accent-rgb), 0.18), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 45%);
+  opacity: 0.85;
+}
+
+.icon-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-icon {
+  width: 58px;
+  height: 58px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  border-radius: 20px;
+  color: var(--site-text);
+  background: linear-gradient(135deg, rgba(var(--site-accent-rgb), 0.28), rgba(var(--site-accent-rgb), 0.08));
+  border: 1px solid rgba(var(--site-accent-rgb), 0.36);
+  box-shadow:
+    0 16px 28px rgba(0, 0, 0, 0.24),
+    0 0 24px rgba(var(--site-accent-rgb), 0.16);
+}
+
+.card-icon.small {
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  margin-bottom: 14px;
+}
+
+.card-icon i {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.card-icon.small i {
+  font-size: 1.6rem;
+}
+
+.icon-card img + .card-icon {
+  margin-top: 18px;
+}
+
+.icon-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.icon-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+}
+
+.icon-list li:last-child {
+  margin-bottom: 0;
+}
+
+.icon-ordered-list {
+  counter-reset: musicmixx-step;
+}
+
+.icon-ordered-list li {
+  counter-increment: musicmixx-step;
+}
+
+.icon-ordered-list li::before {
+  content: counter(musicmixx-step);
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: #fff8f1;
+  font-weight: 800;
+  font-size: 0.8rem;
+  background: linear-gradient(135deg, var(--site-accent), var(--site-accent-dark));
+  box-shadow: 0 10px 22px rgba(var(--site-accent-rgb), 0.2);
+}
+
+.list-icon {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: var(--site-text);
+  background: rgba(var(--site-accent-rgb), 0.13);
+  border: 1px solid rgba(var(--site-accent-rgb), 0.25);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16);
+}
+
+.list-icon i {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.icon-list a {
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 18px;
+    margin-bottom: 12px;
+  }
+
+  .card-icon i {
+    font-size: 1.6rem;
+  }
+
+  .icon-list li {
+    gap: 10px;
+  }
+
+  .list-icon {
+    flex-basis: 32px;
+    width: 32px;
+    height: 32px;
+  }
+}
