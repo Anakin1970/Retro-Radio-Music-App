@@ -798,6 +798,7 @@
     0 8px 16px rgba(0, 0, 0, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
   transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+  cursor: pointer !important;
 }
 
 .track-row:hover {
@@ -815,6 +816,7 @@
 
 .track-row.compact {
   padding: 10px 12px;
+  cursor: not-allowed !important;
 }
 
 .track-icon {
