@@ -43,7 +43,11 @@
               <span class="site-logo-dot"></span>
               <span>MusicMixx Radio App</span>
             </a>
-            <nav class="site-nav" aria-label="Main navigation">
+            <button class="site-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
+              <span class="site-menu-toggle-text">Menu</span>
+              <i class="ri-menu-line" aria-hidden="true"></i>
+            </button>
+            <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
               <ul class="site-nav-list">
                 <li><a class="active" href="index.html">Home</a></li>
                 <li><a href="assets/about.html">About</a></li>
@@ -51,7 +55,7 @@
                 <li><a href="assets/schedule.html">Schedule</a></li>
                 <li><a href="assets/contact.html">Contact</a></li>
               </ul>
-            </nav>
+            </nav> 
           </div><!-- End Header Inner -->
         </div><!-- End Site Container -->
       </header>
@@ -62,7 +66,7 @@
             <div class="page-hero-grid">
               <div class="page-hero-copy">
                 <p class="eyebrow-site">Streaming Music Experience</p>
-                <h1>MusicMixx Radio App: a stylish online radio app with curated music stations</h1>
+                <h1>MusicMixx: A Stylish Online Radio App With Curated Music Stations</h1>
                 <p class="page-hero-text">
                   MusicMixx is built for listeners who want more than a basic playlist. Jump between handpicked stations, explore different moods and genres, and stay locked into a polished radio-style experience designed to feel live, immersive, and always in motion.
                 </p>
@@ -398,6 +402,7 @@
     <script type="module" src="assets/js/app.js"></script>
     <script type="module" src="assets/js/site-router.js"></script>
     <script src="assets/js/newsletter.js"></script>
+    <script src="assets/js/mobile-menu.js"></script>
     <!--Custom Script-->
     <script>
       const copyrightYear = document.getElementById("copyright-year");
