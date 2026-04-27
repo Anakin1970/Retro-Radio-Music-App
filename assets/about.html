@@ -27,10 +27,14 @@
                         <span class="site-logo-dot"></span>
                         <span>MusicMixx Radio App</span>
                     </a>
-                    <nav class="site-nav" aria-label="Main navigation">
+                    <button class="site-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
+                        <span class="site-menu-toggle-text">Menu</span>
+                        <i class="ri-menu-line" aria-hidden="true"></i>
+                    </button>
+                    <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
                         <ul class="site-nav-list">
-                            <li><a href="../index.html">Home</a></li>
-                            <li><a class="active" href="about.html">About</a></li>
+                            <li><a class="active" href="../index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
                             <li><a href="stations.html">Stations</a></li>
                             <li><a href="schedule.html">Schedule</a></li>
                             <li><a href="contact.html">Contact</a></li>
@@ -177,7 +181,8 @@
             </div><!-- End Site Container -->
         </footer>
         <!--Core-JS-->
-        <script type="module" src="js/site-theme.js"></script>
+        <script type="module" src="js/site-theme.js"></script>        
+        <script src="js/mobile-menu.js"></script>
         <!--Custom-JS-->
         <script>
             const copyrightYear = document.getElementById("copyright-year");
